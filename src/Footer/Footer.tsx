@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './Footer.module.scss'
 import { ResumeIconSVG } from '../Nav/ContactIcon'
 import { Link } from 'react-router-dom'
+import { InstagramIcon } from './InstagramIcon'
 
 const links = [
     {
@@ -42,6 +43,9 @@ export const Footer = () => {
                         </Link>
                     )
                 })}
+                <div className={styles.instagram} onClick={ () => window.open('https://instagram.com/sabrinadelilaarts')}>
+                    <InstagramIcon />
+                </div>
             </div>
         </footer>
     )

@@ -5,15 +5,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54a6389e-f5f3-400f-86e7-671a1a5f8c6f" name="Changes" comment="Changing meta info">
+      <change afterPath="$PROJECT_DIR$/src/Footer/InstagramIcon.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.24e77984ea97092ca8dd.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.24e77984ea97092ca8dd.js.LICENSE.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.24e77984ea97092ca8dd.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.5aeefb6d2c22d03b2a38.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.5aeefb6d2c22d03b2a38.js.LICENSE.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.5aeefb6d2c22d03b2a38.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.86ed00ae869e8f29737c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.86ed00ae869e8f29737c.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.86ed00ae869e8f29737c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.e3342d3940c836f3cd3c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.e3342d3940c836f3cd3c.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.e3342d3940c836f3cd3c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/coffee_zen_branding.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/coffee_zen_cart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/coffee_zen_home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/coffee_zen_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/coffee_zen_product.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/profile_picture.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/roaches.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_art_ascent_publication.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_arts_branding.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_arts_gallery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_arts_home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_book_art.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_book_art_page_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_book_art_page_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_book_art_page_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_book_art_page_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_book_signing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_cat_and_the_hat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_grinch_painting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_haunted_house.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_haunted_house_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_it_painting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_moms_room_page_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_moms_room_page_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_moms_room_page_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_moms_room_page_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_movie_poster_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_movie_poster_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_pet_semetary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_pumpkins.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_resume_2024.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_resume_2024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_rick_and_morty.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_snoopy_painting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_stks_art_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_stks_art_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_stks_art_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_stks_art_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sabrina_super_natural.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sometimes_dead_is_better.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sometimes_dead_is_better_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sulley_sweets_branding.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sulley_sweets_cart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sulley_sweets_home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sulley_sweets_login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/sulley_sweets_product.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/public/assets/wedding_sunset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Footer/Footer.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Footer/Footer.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Gallery/Gallery.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Gallery/Gallery.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Home/ContactMe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home/ContactMe.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +135,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714711687259</updated>
       <workItem from="1714711688314" duration="7814000" />
-      <workItem from="1714791000595" duration="13321000" />
+      <workItem from="1714791000595" duration="14338000" />
     </task>
     <servers />
   </component>
@@ -88,7 +151,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/Pages/Gallery/Gallery.tsx</url>
-          <line>194</line>
+          <line>197</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>

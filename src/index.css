@@ -46,3 +46,13 @@ h2 {
   /* identical to box height */
   color: #000000;
 }
+
+h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+  color: #000000;
+}

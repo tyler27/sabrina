@@ -4,26 +4,28 @@ import styles from './Gallery.module.scss'
 import appStyles from '../../App.module.scss'
 
 export interface GalleryProject {
-    title: string
-    description: string
+    title: string;
+    subTitle?: string;
+    description: string;
     testimonial?: {
-        text: string
-        author: string
+        text: string;
+        author: string;
     }
     images: {
-        src: string
-        alt: string
+        src: string;
+        alt: string;
     }[]
 }
 
-export const GalleryProject = ({ title, description, images, testimonial }: GalleryProject) => {
+export const GalleryProject = ({ title, subTitle, description, images, testimonial }: GalleryProject) => {
     const [visible, setVisible] = React.useState(false)
     const [activeIndex, setActiveIndex] = useState(0)
 
     return (
         <div className={styles.project}>
             <h1>{title}</h1>
-            <h2>{description}</h2>
+            { subTitle && <h2>{subTitle}</h2> }
+            <h3>{description}</h3>
             <ul className={styles.imageGallery}>
                 {images.map((image, index) => {
                     return (
@@ -151,7 +153,8 @@ const projects: GalleryProject[] = [
         ]
     },
     {
-        title: "49th & 50th Annual HCC Student Juried Art Exhibition Mom's Room",
+        title: "49th & 50th Annual HCC Student Juried Art Exhibition",
+        subTitle: 'Moms Room',
         description: 'Illustrator',
         images: [
             {
