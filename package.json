@@ -1,0 +1,84 @@
+{
+  "name": "sabrina",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "webpack --config=webpack.config.prod.js",
+    "build:dev": "webpack --config=webpack.config.dev.js",
+    "start": "webpack-dev-server --config=webpack.config.dev.js --open",
+    "lint": "eslint **/*.{ts,tsx}",
+    "lint:fix": "eslint **/*.{ts,tsx} --fix",
+    "prepare": "husky"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@eslint/js": "^8.56.0",
+    "classnames": "^2.5.1",
+    "copy-webpack-plugin": "^12.0.2",
+    "https-proxy-agent": "^7.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^5.0.1",
+    "react-image-gallery": "^1.3.0",
+    "react-parallax-tilt": "^1.7.210",
+    "react-responsive": "^9.0.2",
+    "react-router-dom": "^6.22.0",
+    "react-viewer": "^3.2.2",
+    "sanitize-html-react": "^1.13.0",
+    "sass-loader": "^14.1.0",
+    "three": "^0.161.0",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/css-modules": "^1.0.5",
+    "@types/react-helmet": "^6.1.11",
+    "@types/react-image-gallery": "^1.2.4",
+    "@types/sanitize-html": "^2.11.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.10.0",
+    "eslint": "^8.56.0",
+    "eslint-webpack-plugin": "^4.0.1",
+    "html-webpack-plugin": "^5.6.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "mini-css-extract-plugin": "^2.8.0",
+    "node-sass": "^9.0.0",
+    "prettier": "3.2.5",
+    "sanitize-html": "^2.11.0",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^7.0.1",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write --ignore-unknown",
+      "eslint **/*.{ts,tsx}"
+    ]
+  }
+}

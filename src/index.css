@@ -1,0 +1,48 @@
+body {
+  margin: auto;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+root {
+  width: 100vh;
+  height: 100vh;
+}
+
+a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 25px;
+  color: #000000;
+  text-decoration: none;
+}
+
+li {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 30px;
+
+  color: #000000;
+}
+
+h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 64px;
+  color: #000000;
+}
+
+h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  /* identical to box height */
+  color: #000000;
+}

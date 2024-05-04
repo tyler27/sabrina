@@ -1,0 +1,27 @@
+.footer {
+  background: rgba(255, 224, 93, 0.53);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px;
+  text-align: center;
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 110px;
+    width: 45%;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    a {
+      padding-bottom: 20px;
+    }
+  }
+}

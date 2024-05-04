@@ -1,0 +1,11 @@
+# Ignore artifacts:
+dist
+.idea
+public
+coverage
+node_modules
+
+# Ignore all HTML files:
+**/*.html
+webpack.config.dev.js
+webpack.config.prod.js

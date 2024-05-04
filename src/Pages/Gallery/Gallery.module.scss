@@ -1,0 +1,50 @@
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 80%;
+
+  .project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .testimonial {
+      text-align: center;
+      font-style: italic;
+    }
+
+    .imageGallery {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+
+      @media screen and (min-width: 1150px) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .project ul {
+    list-style: none;
+    padding: 8px;
+  }
+
+  .project > li {
+    flex-basis: 350px;
+  }
+
+  .project li img {
+    max-width: 100%;
+
+    @media screen and (min-width: 1150px) {
+      max-height: 100%;
+    }
+
+    border-radius: 5px;
+  }
+}

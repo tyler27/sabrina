@@ -1,0 +1,174 @@
+
+
+.home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 80%;
+  }
+
+  .contactMe {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+    .contactForm {
+      box-sizing: border-box;
+      max-width: 400px;
+      background: #FFFFFF;
+      border: 1px solid #000000;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      text-align: center;
+
+      input::placeholder {
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 18px;
+      }
+
+      textarea::placeholder {
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 18px;
+      }
+
+      input {
+        height: 53px;
+        width: 80%;
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        margin-top: 6px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+        font-size: 24px;
+      }
+
+      button {
+        box-sizing: border-box;
+        height: 53px;
+        width: 80%;
+        background: rgba(255, 224, 93, 0.53);
+        border: 1px solid #000000;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        padding: 8px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 24px;
+        color: black;
+      }
+
+      textarea {
+        width: 80%;
+        font-size: 18px;
+        min-height: 100px;
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        margin-top: 6px;
+        margin-bottom: 6px;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .projectGallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .list {
+      width: 50%;
+    }
+  }
+
+
+
+  .info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @media screen and (max-width: 1150px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Mobile first */
+    .profilePicture {
+      width: 304px;
+      height: 324px;
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      .profilePicture {
+        width: 304px;
+        height: 324px;
+        border-radius: 8px;
+      }
+
+      display: flex;
+      justify-content: space-evenly;
+      padding-bottom: 20px;
+    }
+
+    .infoBlock {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      padding: 8px;
+
+      @media only screen and (min-width: 768px) {
+        font-size: 60px;
+      }
+
+      .introductionText {
+        font-family: 'Josefin Sans', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 26px;
+      }
+
+      color: #000000;
+    }
+  }
+}
