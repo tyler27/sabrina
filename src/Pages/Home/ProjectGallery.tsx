@@ -33,7 +33,7 @@ const images = [
     },
     {
         original: '/public/assets/sulley_sweets_branding.png',
-        description: 'Fima: Branding Guide'
+        description: 'Figma: Branding Guide'
     },
     {
         original: '/public/assets/sulley_sweets_login.png',
