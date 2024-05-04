@@ -95,6 +95,10 @@
   align-items: center;
   height: 50px;
   padding-top: 50px;
+
+  a {
+    display: flex;
+  }
 }
 
 .nav__link:hover {
