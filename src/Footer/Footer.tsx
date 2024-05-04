@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 import styles from './Footer.module.scss'
-import { ResumeIconSVG } from '../Nav/ContactIcon'
 import { Link } from 'react-router-dom'
 import { InstagramIcon } from './InstagramIcon'
 
-const links = [
+
+interface FooterLink {
+    to: string;
+    label: string;
+    onClick?: () => void;
+    icon?: ReactElement;
+    download?: boolean;
+}
+
+const links: FooterLink[] = [
     {
         to: '/',
         label: 'Home',
@@ -20,7 +28,6 @@ const links = [
     {
         to: '/public/assets/sabrina_resume_2024.png',
         label: 'Resume',
-        icon: <ResumeIconSVG />,
         download: true
     }
 ]
