@@ -1,7 +1,11 @@
 import styles from './Home.module.scss'
-import React from 'react'
+import React, { useState } from 'react'
 
 export const ContactMe = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
     return (
         <div className={styles.contactMe}>
             <h1>Contact Me</h1>
@@ -9,21 +13,25 @@ export const ContactMe = () => {
             <div className={styles.contactForm}>
                 <form
                     method="POST"
-                    action="mailto: sabrinadelilaarts@gmail.com"
+                    onSubmit={ () => window.open(`mailto:sabrinadelilaarts@gmail.com?subject=Contact for Website&name=${name}&email=${email}&message=${message}`)}
                 >
                     <input
                         name="name"
                         type="text"
                         placeholder="Name"
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
                     />
                     <input
                         name="email"
                         type="email"
                         placeholder="Email"
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <textarea
                         name="message"
                         placeholder="Message"
+                        onChange={(e) => setMessage(e.target.value)}
                     />
                     <button
                         name="submitButton"

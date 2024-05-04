@@ -7,6 +7,7 @@
     <list default="true" id="54a6389e-f5f3-400f-86e7-671a1a5f8c6f" name="Changes" comment="Changing meta info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Home/ContactMe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home/ContactMe.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714711687259</updated>
       <workItem from="1714711688314" duration="7814000" />
-      <workItem from="1714791000595" duration="11865000" />
+      <workItem from="1714791000595" duration="12793000" />
     </task>
     <servers />
   </component>
