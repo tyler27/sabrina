@@ -13,7 +13,10 @@ export const ContactMe = () => {
             <div className={styles.contactForm}>
                 <form
                     method="POST"
-                    onSubmit={ () => window.open(`mailto:sabrinadelilaarts@gmail.com?subject=Contact for Website&name=${name}&email=${email}&message=${message}`)}
+                    onSubmit={ (e) => {
+                        e.preventDefault();
+                        return window.open(`mailto:sabrinadelilaarts@gmail.com?subject=Contact for Website&name=${name}&email=${email}&message=${message}`)
+                    }}
                 >
                     <input
                         name="name"
