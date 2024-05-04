@@ -24,7 +24,10 @@ const links: NavLink[] = [
     },
     {
         to: '/gallery',
-        label: 'Gallery'
+        label: 'Gallery',
+        onClick: () => {
+            window.scrollTo(0, 0)
+        },
     },
     {
         to: '/',
