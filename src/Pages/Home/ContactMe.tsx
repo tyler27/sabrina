@@ -15,7 +15,7 @@ export const ContactMe = () => {
                     method="POST"
                     onSubmit={ (e) => {
                         e.preventDefault();
-                        return window.open(`mailto:sabrinadelilaarts@gmail.com?subject=Sabrina Delila Arts Contact Form&body=&name:${name} email:${email} message:${message}`)
+                        return window.open(`mailto:sabrinadelilaarts@gmail.com?subject=Sabrina Delila Arts Contact Form&body=name:${name} %0D%0A email:${email} %0D%0A message:${message}`)
                     }}
                 >
                     <input
