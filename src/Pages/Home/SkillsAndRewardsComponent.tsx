@@ -18,8 +18,9 @@ export const SkillsAndRewardsComponent = () => {
 
                     <ul className={styles.list}>
                         <h2>Main Software</h2>
-                        <li>Illustrator</li>
                         <li>Figma</li>
+                        <li>Illustrator</li>
+                        <li>Photoshop</li>
                         <li>Procreate</li>
                     </ul>
                 </div>
