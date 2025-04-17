@@ -3,23 +3,27 @@ import Viewer from 'react-viewer'
 import styles from './Gallery.module.scss'
 import appStyles from '../../App.module.scss'
 
+export type Testimonial = {
+    text: string;
+    author: string;
+};
+
 export interface GalleryProject {
     title: string;
     subTitle?: string;
     description: string;
-    testimonial?: {
-        text: string;
-        author: string;
-    }
+    testimonials: Testimonial[];
     images: {
         src: string;
         alt: string;
     }[]
 }
 
-export const GalleryProject = ({ title, subTitle, description, images, testimonial }: GalleryProject) => {
-    const [visible, setVisible] = React.useState(false)
-    const [activeIndex, setActiveIndex] = useState(0)
+const emptyTestimonials: Testimonial[] = [];
+
+export const GalleryProject = ({ title, subTitle, description, images, testimonials = emptyTestimonials }: GalleryProject) => {
+    const [visible, setVisible] = React.useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
         <div className={styles.project}>
@@ -57,11 +61,14 @@ export const GalleryProject = ({ title, subTitle, description, images, testimoni
                 }}
                 images={images}
             />
-            {testimonial && (
-                <>
-                    <p className={styles.testimonial}>"{testimonial?.text}"</p>
-                    <p>-{testimonial?.author}</p>
-                </>
+            {testimonials.length > 0 && (
+                testimonials?.map(t => {
+                    return (<>
+                        <p className={styles.testimonial}>"{t?.text}"</p>
+                        <p>-{t?.author}</p>
+                    </>
+                    );
+                })
             )}
         </div>
     )
@@ -71,6 +78,7 @@ const projects: GalleryProject[] = [
     {
         title: 'Coffee Zen',
         description: 'Figma: Desktop, UX, Logo & Packaging Design',
+        testimonials: [],
         images: [
             {
                 src: '/public/assets/coffee_zen_branding.png',
@@ -97,6 +105,7 @@ const projects: GalleryProject[] = [
     {
         title: "Sulley's Sweets",
         description: 'Figma: Mobile, UX & Logo Design',
+        testimonials: [],
         images: [
             {
                 src: '/public/assets/sulley_sweets_branding.png',
@@ -123,10 +132,10 @@ const projects: GalleryProject[] = [
     {
         title: "Heaven's Bell: Available in Barnes & Noble",
         description: 'Procreate: Digital Illustration & Cover Art',
-        testimonial: {
+        testimonials: [{
             text: "Having worked with Sabrina on my book Heaven's Bell in 2020, I was impressed with her professionalism, artistic abilities and genuine teamwork in the overall success of our publication and production.",
             author: 'Sherrie Barch'
-        },
+        }],
         images: [
             {
                 src: '/public/assets/sabrina_book_art.png',
@@ -157,6 +166,16 @@ const projects: GalleryProject[] = [
     {
         title: 'Personal Portfolio',
         description: 'Procreate: Digital Art',
+        testimonials: [
+            {
+                text: "This is incredible",
+                author: 'Four Walls Whiskey'
+            },
+            {
+                text: "This is incredible. Going to share it tomorrow. Thank you for this",
+                author: 'Josh Malerman Author of Bird Box'
+            }
+        ],
         images: [
             {
                 src: '/public/assets/wedding_picture_tyler_sabrina.jpg',
@@ -180,6 +199,7 @@ const projects: GalleryProject[] = [
     {
         title: '2024 FASTA Exhibition',
         description: 'Featured artwork exhibition',
+        testimonials: [],
         images: [
             {
                 src: '/public/assets/parents_art.jpg',
@@ -195,6 +215,7 @@ const projects: GalleryProject[] = [
     {
         title: "2023 & 2024 HCC Student Juried Art Exhibition",
         description: 'Selected artwork',
+        testimonials: [],
         images: [
             {
                 src: '/public/assets/sabrina_moms_room_page_1.png',
@@ -229,6 +250,7 @@ const projects: GalleryProject[] = [
     {
         title: 'Horror Movie Posters',
         description: 'Illustrator: Digital Art',
+        testimonials: [],
         images: [
             {
                 src: '/public/assets/sabrina_movie_poster_1.jpg',
@@ -255,6 +277,7 @@ const projects: GalleryProject[] = [
     {
         title: 'STKS',
         description: 'Photoshop: Graphic Design & Trade Show Display',
+        testimonials: [],
         images: [
             {
                 src: '/public/assets/sabrina_stks_art_1.png',
@@ -277,6 +300,7 @@ const projects: GalleryProject[] = [
     {
         title: 'Art Ascent Magazine Artists of Abstract | 2020 August edition',
         description: 'Procreate: Digital Art',
+        testimonials: [],
         images: [
             {
                 src: '/public/assets/sabrina_art_ascent_publication.png',
@@ -287,6 +311,7 @@ const projects: GalleryProject[] = [
     {
         title: 'Paintings',
         description: 'Acrylic on canvas',
+        testimonials: [],
         images: [
             {
                 src: '/public/assets/sabrina_super_natural.png',
