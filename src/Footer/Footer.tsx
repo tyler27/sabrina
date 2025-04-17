@@ -26,7 +26,7 @@ const links: FooterLink[] = [
         label: 'Gallery'
     },
     {
-        to: '/public/assets/sabrina_resume_2024.png',
+        to: '/public/assets/sabrina_resume_2025.png',
         label: 'Resume',
         download: true
     }

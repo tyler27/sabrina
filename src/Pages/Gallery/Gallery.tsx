@@ -30,10 +30,12 @@ export const GalleryProject = ({ title, subTitle, description, images, testimoni
                 {images.map((image, index) => {
                     return (
                         <li
+                            key={image.src}
                             onClick={() => {
                                 setActiveIndex(index)
                                 setVisible(true)
                             }}
+                            className={styles.cardItem}
                         >
                             <img
                                 src={image.src}
@@ -119,7 +121,7 @@ const projects: GalleryProject[] = [
         ]
     },
     {
-        title: 'Heaven’s Bell: Available in Barnes & Noble',
+        title: "Heaven's Bell: Available in Barnes & Noble",
         description: 'Procreate: Digital Illustration & Cover Art',
         testimonial: {
             text: "Having worked with Sabrina on my book Heaven's Bell in 2020, I was impressed with her professionalism, artistic abilities and genuine teamwork in the overall success of our publication and production.",
@@ -153,55 +155,74 @@ const projects: GalleryProject[] = [
         ]
     },
     {
-        title: "49th & 50th Annual HCC Student Juried Art Exhibition",
-        subTitle: 'Moms Room',
-        description: 'Illustrator',
+        title: 'Personal Portfolio',
+        description: 'Procreate: Digital Art',
+        images: [
+            {
+                src: '/public/assets/wedding_picture_tyler_sabrina.jpg',
+                alt: "Our wedding drawing"
+            },
+            
+            {
+                src: '/public/assets/chapel_roan.jpg',
+                alt: "Chapel roan"
+            },
+            {
+                src: '/public/assets/golden_god.jpg',
+                alt: "Golden god"
+            },
+            {
+                src: '/public/assets/other_mommy.jpg',
+                alt: "Other mommy"
+            }
+        ]
+    },
+    {
+        title: '2024 FASTA Exhibition',
+        description: 'Featured artwork exhibition',
+        images: [
+            {
+                src: '/public/assets/parents_art.jpg',
+                alt: "My parents"
+            },
+      
+            {
+                src: '/public/assets/me_fastfa.jpg',
+                alt: "Parents with art at FASTA Exhibition"
+            }
+        ]
+    },
+    {
+        title: "2023 & 2024 HCC Student Juried Art Exhibition",
+        description: 'Selected artwork',
         images: [
             {
                 src: '/public/assets/sabrina_moms_room_page_1.png',
-                alt: "Mom's Room: Illustrator"
+                alt: "Art exhibition piece"
             },
             {
                 src: '/public/assets/sabrina_moms_room_page_2.png',
-                alt: "Mom's Room: Illustrator"
+                alt: "Art exhibition piece"
             },
             {
                 src: '/public/assets/sabrina_moms_room_page_3.png',
-                alt: "Mom's Room: Illustrator"
+                alt: "Art exhibition piece"
             },
             {
                 src: '/public/assets/sabrina_moms_room_page_4.png',
-                alt: "Mom's Room: Illustrator"
-            }
-        ]
-    },
-    {
-        title: 'Sometimes Dead Is Better',
-        description: 'Illustrator',
-        images: [
+                alt: "Art exhibition piece"
+            },
+            {
+                src: '/public/assets/profile_picture.jpg',
+                alt: "Me with artwork at exhibition"
+            },
             {
                 src: '/public/assets/sometimes_dead_is_better.png',
                 alt: 'Sometimes Dead Is Better Illustrator'
-            }
-        ]
-    },
-    {
-        title: 'Roaches',
-        description: 'Photography',
-        images: [
-            {
-                src: '/public/assets/roaches.png',
-                alt: 'Photography photo for school'
-            }
-        ]
-    },
-    {
-        title: 'Wedding Sunset',
-        description: 'Photoshop',
-        images: [
+            },
             {
                 src: '/public/assets/wedding_sunset.png',
-                alt: 'Photoshop project for school'
+                alt: 'Wedding Sunset Photoshop project'
             }
         ]
     },
@@ -308,13 +329,12 @@ export const Gallery = () => {
         <div className={styles.gallery}>
             {projects.map((project: GalleryProject, index) => {
                 return (
-                    <>
+                    <React.Fragment key={index}>
                         <GalleryProject
-                            key={index}
                             {...project}
                         />
                         {index !== projects.length - 1 && <div className={appStyles.hr} />}
-                    </>
+                    </React.Fragment>
                 )
             })}
         </div>

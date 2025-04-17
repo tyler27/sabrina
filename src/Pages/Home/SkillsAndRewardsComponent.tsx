@@ -33,14 +33,14 @@ export const SkillsAndRewardsComponent = () => {
                         <h2>Roles</h2>
                         <li>President of the HCC Art Club (2023)</li>
                         <li>PTK Honors Society with a 4.0 GPA</li>
+                        <li>PTK All Florida Academic Team (2023)</li>
                     </ul>
 
                     <ul className={styles.list}>
                         <h2>Awards</h2>
-                        <li>PTK All Florida Academic Team (2023)</li>
+                        <li>Artwork selected for 2024 FASTA Exhibition</li>
                         <li>
-                            4 pieces total selected for the 49th & 50th Annual HCC Student Jurried Art Exhibition (2023
-                            & 2024)
+                            Artwork selected for the 2023 & 2024 HCC Student Juried Art Exhibition
                         </li>
                         <li>Art Ascent Magazine: Artist of Abstract | 2020 August Edition</li>
                     </ul>

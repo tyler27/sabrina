@@ -42,7 +42,7 @@ const links: NavLink[] = [
         icon: <ContactIconSVG />
     },
     {
-        to: '/public/assets/sabrina_resume_2024.pdf',
+        to: '/public/assets/sabrina_resume_2025.pdf',
         label: 'Resume',
         icon: <ResumeIconSVG />,
         download: true
