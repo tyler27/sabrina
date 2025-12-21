@@ -83,5 +83,9 @@
       "prettier --write --ignore-unknown",
       "eslint **/*.{ts,tsx}"
     ]
-  }
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "packageManager": "npm@11.7.0"
 }
