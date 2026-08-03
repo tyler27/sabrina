@@ -1,0 +1,100 @@
+@import '../../../styles/tokens';
+
+.contact {
+    position: relative;
+    padding: clamp(70px, 11vh, 130px) $gutter 60px;
+    background: $ink;
+    color: $on-dark;
+    overflow: hidden;
+}
+
+.sparkleA {
+    position: absolute;
+    top: 14%;
+    left: 7%;
+    font-size: 40px;
+    color: $gold;
+    animation: sda-spin 22s linear infinite;
+}
+
+.sparkleB {
+    position: absolute;
+    bottom: 30%;
+    right: 8%;
+    font-size: 32px;
+    color: $rose;
+    animation: sda-floaty 8s ease-in-out infinite;
+}
+
+.inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.kicker {
+    font-family: $font-hand;
+    font-size: clamp(28px, 3.4vw, 46px);
+    color: $gold;
+    transform: rotate(-2deg);
+}
+
+.title {
+    margin: 6px 0 0;
+    font-family: $font-display;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.88;
+    font-size: clamp(52px, 12vw, 150px);
+}
+
+.lede {
+    margin: 30px auto 0;
+    max-width: 44ch;
+    font-size: clamp(17px, 1.5vw, 21px);
+    line-height: 1.55;
+    color: $on-dark-muted;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 36px;
+    font-family: $font-mono;
+    font-size: 14px;
+}
+
+.primary,
+.secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border-radius: 999px;
+}
+
+.primary {
+    background: $lilac;
+    color: $paper;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+}
+
+.secondary {
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+    &:hover {
+        border-color: $gold;
+        color: $gold;
+    }
+}

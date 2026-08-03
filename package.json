@@ -80,8 +80,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write --ignore-unknown",
-      "eslint **/*.{ts,tsx}"
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{ts,tsx}": [
+      "eslint"
     ]
   },
   "engines": {

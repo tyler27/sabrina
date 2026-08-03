@@ -1,0 +1,224 @@
+@import '../../../styles/tokens';
+
+.about {
+    @include section-shell;
+}
+
+.sparkle {
+    position: absolute;
+    top: 8%;
+    right: 4%;
+    font-size: 40px;
+    color: $gold;
+    z-index: 0;
+    animation: sda-spin 24s linear infinite;
+}
+
+.grid {
+    @include container;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: clamp(36px, 5vw, 72px);
+    align-items: center;
+}
+
+.papers {
+    position: relative;
+}
+
+.tape {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    width: 104px;
+    height: 32px;
+    background: $tape;
+    border-left: 1px solid rgba(124, 99, 185, 0.25);
+    border-right: 1px solid rgba(124, 99, 185, 0.25);
+    transform: translateX(-50%) rotate(-3deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+    z-index: 4;
+}
+
+.paper {
+    position: relative;
+    background: $card;
+    padding: 36px 26px 32px 66px;
+    transform: rotate(-1.2deg);
+    filter: drop-shadow(0 15px 30px rgba(42, 38, 32, 0.22));
+    // Ruled lines, aligned to the 34px handwriting leading.
+    background-image: repeating-linear-gradient(transparent 0 33px, rgba(138, 116, 193, 0.4) 33px 34px);
+    background-position: 0 16px;
+    // Tears a row of punch holes out of the top edge.
+    -webkit-mask:
+        radial-gradient(circle 7px at 17px 0, #0000 7px, #000 7.5px) 0 0 / 34px 15px repeat-x,
+        linear-gradient(#000 0 0) 0 15px / 100% calc(100% - 15px) no-repeat;
+    mask:
+        radial-gradient(circle 7px at 17px 0, #0000 7px, #000 7.5px) 0 0 / 34px 15px repeat-x,
+        linear-gradient(#000 0 0) 0 15px / 100% calc(100% - 15px) no-repeat;
+}
+
+.margin {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 52px;
+    width: 2px;
+    background: rgba(177, 144, 157, 0.7);
+}
+
+.handwriting {
+    position: relative;
+    font-family: $font-hand;
+    color: #4a377b;
+    line-height: 34px;
+    font-size: 23px;
+    white-space: pre-wrap;
+}
+
+.heading {
+    font-size: 31px;
+    color: $ink;
+}
+
+.sticky {
+    position: absolute;
+    bottom: -26px;
+    right: -14px;
+    width: 140px;
+    background: $gold;
+    padding: 14px;
+    box-shadow: 0 10px 22px rgba(42, 38, 32, 0.2);
+    transform: rotate(-6deg);
+    font-family: $font-hand;
+    font-size: 20px;
+    line-height: 1.15;
+    color: $ink;
+    z-index: 5;
+    touch-action: pan-y;
+}
+
+/*
+ * The design pinned this at a fixed `left: 353px`, which only lands correctly at
+ * one column width. Anchoring to the right edge keeps the same overlap as the
+ * column grows and shrinks.
+ */
+.gradPolaroid {
+    position: absolute;
+    top: -39px;
+    right: -8%;
+    width: clamp(130px, 17vw, 178px);
+    background: $card;
+    padding: 11px 11px 34px;
+    box-shadow: 0 14px 30px rgba(42, 38, 32, 0.24);
+    transform: rotate(7deg);
+    z-index: 6;
+    touch-action: pan-y;
+}
+
+.gradTape {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    width: 78px;
+    height: 24px;
+    background: $tape;
+    transform: translateX(-50%) rotate(-5deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.gradImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.gradCaption {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: $font-hand;
+    font-size: 19px;
+    color: $ink;
+}
+
+// ---- right column ----
+.kicker {
+    @include mono-label;
+    color: $lilac-light;
+    margin-bottom: 18px;
+}
+
+.title {
+    margin: 0 0 8px;
+    font-family: $font-display;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.98;
+    font-size: clamp(34px, 5vw, 62px);
+}
+
+.accent {
+    color: $lilac-light;
+}
+
+.body {
+    margin: 24px 0 0;
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.6;
+    max-width: 48ch;
+    color: $body;
+}
+
+.pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.pill {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: $card;
+    border: 1.5px solid $ink;
+    font-family: $font-mono;
+    font-size: 12px;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        // Leave headroom for the polaroid that overhangs the paper.
+        row-gap: 72px;
+    }
+
+    .papers {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 560px) {
+    .paper {
+        padding: 32px 18px 28px 52px;
+    }
+
+    .handwriting {
+        font-size: 20px;
+    }
+
+    .heading {
+        font-size: 27px;
+    }
+
+    .gradPolaroid {
+        right: -4%;
+        width: clamp(112px, 30vw, 150px);
+    }
+
+    .sticky {
+        right: 0;
+    }
+}

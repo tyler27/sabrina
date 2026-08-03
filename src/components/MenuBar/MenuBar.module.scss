@@ -1,0 +1,159 @@
+@import '../../styles/tokens';
+
+$narrow: 760px;
+
+.bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    height: $menubar-height;
+    padding: 0 16px;
+    font-family: $font-mono;
+    font-size: 13px;
+    color: $ink;
+
+    background: rgba(236, 228, 228, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(70, 52, 115, 0.13);
+
+    :global(html[data-theme='dark']) & {
+        background: rgba(70, 52, 115, 0.72);
+        border-bottom-color: rgba(255, 255, 255, 0.13);
+        color: $on-dark;
+    }
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-width: 0;
+}
+
+.glyph {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.brand {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.link {
+    opacity: 0.7;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.active {
+    opacity: 1;
+    font-weight: 700;
+
+    :global(html[data-theme='dark']) & {
+        color: $gold;
+    }
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.place,
+.sun {
+    opacity: 0.55;
+    white-space: nowrap;
+}
+
+.clock {
+    font-variant-numeric: tabular-nums;
+    min-width: 74px;
+    text-align: right;
+    opacity: 0.55;
+}
+
+.toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 24px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    color: inherit;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+// The bar is a desktop metaphor; on phones the links live behind the toggle.
+@media (max-width: $narrow) {
+    .left {
+        gap: 12px;
+    }
+
+    .place,
+    .sun {
+        display: none;
+    }
+
+    .toggle {
+        display: inline-flex;
+    }
+
+    .links {
+        position: absolute;
+        top: $menubar-height;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 6px 16px 10px;
+        background: rgba(236, 228, 228, 0.96);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(70, 52, 115, 0.16);
+        box-shadow: 0 12px 24px rgba(70, 52, 115, 0.14);
+
+        :global(html[data-theme='dark']) & {
+            background: rgba(70, 52, 115, 0.96);
+            border-bottom-color: rgba(255, 255, 255, 0.16);
+        }
+
+        &:not(.open) {
+            display: none;
+        }
+    }
+
+    .link {
+        display: block;
+        width: 100%;
+        padding: 11px 0;
+        opacity: 0.85;
+    }
+}

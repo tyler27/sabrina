@@ -1,367 +1,156 @@
-import React, { useState } from 'react'
-import Viewer from 'react-viewer'
+import React, { useMemo } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import classNames from 'classnames'
+
+import { PinCard } from '../../components/PinCard/PinCard'
+import { ContactCta } from '../../components/ContactCta/ContactCta'
+import { SiteFooter } from '../../components/SiteFooter/SiteFooter'
+import { Flower } from '../../components/Decor/Decor'
+import { useScrollEffects } from '../../hooks/useScrollEffects'
+import { usePageChrome } from '../../hooks/usePageChrome'
+import { categories, galleryOrder, resolveCategory } from '../../data/projects'
 import styles from './Gallery.module.scss'
-import appStyles from '../../App.module.scss'
 
-export type Testimonial = {
-    text: string;
-    author: string;
-};
+/** Angle and tape for each card, keyed to `galleryOrder`. */
+const pins = [
+    { rotate: -5.5, tape: { align: 'right', angle: 6, colour: 'rgba(124,99,185,.6)', width: 60 } },
+    { rotate: 4, tape: { align: 'left', angle: -8, colour: 'rgba(165,156,207,.6)', width: 60 } },
+    { rotate: 3.5, tape: { align: 'left', angle: -7, colour: 'rgba(165,156,207,.6)', width: 60 } },
+    { rotate: 2.5, tape: { align: 'center', angle: -4, colour: 'rgba(165,156,207,.6)', width: 66 } },
+    { rotate: -3, tape: { align: 'right', angle: 7, colour: 'rgba(203,172,177,.6)', width: 62 } },
+    { rotate: -5, tape: { align: 'center', angle: -5, colour: 'rgba(165,156,207,.6)', width: 66 } },
+    { rotate: 5, tape: { align: 'left', angle: -8, colour: 'rgba(177,144,157,.6)', width: 62 } },
+    { rotate: 3, tape: { align: 'left', angle: -6, colour: 'rgba(203,172,177,.6)', width: 60 } },
+    { rotate: -2, tape: { align: 'right', angle: 6, colour: 'rgba(124,99,185,.55)', width: 64 } },
+    { rotate: -3.5, tape: { align: 'right', angle: 7, colour: 'rgba(203,172,177,.6)', width: 60 } },
+    { rotate: -6, tape: { align: 'left', angle: -8, colour: 'rgba(177,144,157,.6)', width: 62 } },
+    { rotate: -4.5, tape: { align: 'right', angle: 6, colour: 'rgba(124,99,185,.55)', width: 64 } }
+] as const
 
-export interface GalleryProject {
-    title: string;
-    subTitle?: string;
-    description: string;
-    testimonials: Testimonial[];
-    images: {
-        src: string;
-        alt: string;
-    }[]
-}
+export const Gallery: React.FC = () => {
+    const [params, setParams] = useSearchParams()
+    const active = resolveCategory(params.get('cat'))
 
-const emptyTestimonials: Testimonial[] = [];
+    usePageChrome({
+        title: 'Gallery',
+        description:
+            'A wall of selected illustration, brand identity, digital art, animation and exhibition work by Sabrina Delila Telis.',
+        theme: 'dark'
+    })
 
-export const GalleryProject = ({ title, subTitle, description, images, testimonials = emptyTestimonials }: GalleryProject) => {
-    const [visible, setVisible] = React.useState(false);
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    return (
-        <div className={styles.project}>
-            <h1>{title}</h1>
-            { subTitle && <h2>{subTitle}</h2> }
-            <h3>{description}</h3>
-            <ul className={styles.imageGallery}>
-                {images.map((image, index) => {
-                    return (
-                        <li
-                            key={image.src}
-                            onClick={() => {
-                                setActiveIndex(index)
-                                setVisible(true)
-                            }}
-                            className={styles.cardItem}
-                        >
-                            <img
-                                src={image.src}
-                                alt={image.alt}
-                            />
-                        </li>
-                    )
-                })}
-            </ul>
-            <Viewer
-                drag={false}
-                loop={true}
-                rotatable={false}
-                scalable={false}
-                visible={visible}
-                activeIndex={activeIndex}
-                onClose={() => {
-                    setVisible(false)
-                }}
-                images={images}
-            />
-            {testimonials.length > 0 && (
-                testimonials?.map(t => {
-                    return (<>
-                        <p className={styles.testimonial}>"{t?.text}"</p>
-                        <p>-{t?.author}</p>
-                    </>
-                    );
-                })
-            )}
-        </div>
+    const visible = useMemo(
+        () =>
+            galleryOrder
+                .map((project, index) => ({ project, pin: pins[index % pins.length] }))
+                .filter(({ project }) => active === 'all' || project.filter === active),
+        [active]
     )
-}
 
-const projects: GalleryProject[] = [
-    {
-        title: 'Coffee Zen',
-        description: 'Figma: Desktop, UX, Logo & Packaging Design',
-        testimonials: [],
-        images: [
-            {
-                src: '/public/assets/coffee_zen_branding.png',
-                alt: 'Coffee Zen Figma: Desktop, UX, Logo & Packaging Design'
-            },
-            {
-                src: '/public/assets/coffee_zen_login.png',
-                alt: 'Coffee Zen Figma: Desktop, UX, Logo & Packaging Design'
-            },
-            {
-                src: '/public/assets/coffee_zen_home.png',
-                alt: 'Coffee Zen Figma: Desktop, UX, Logo & Packaging Design'
-            },
-            {
-                src: '/public/assets/coffee_zen_cart.png',
-                alt: 'Coffee Zen Figma: Desktop, UX, Logo & Packaging Design'
-            },
-            {
-                src: '/public/assets/coffee_zen_product.png',
-                alt: 'Coffee Zen Figma: Desktop, UX, Logo & Packaging Design'
-            }
-        ]
-    },
-    {
-        title: "Sulley's Sweets",
-        description: 'Figma: Mobile, UX & Logo Design',
-        testimonials: [],
-        images: [
-            {
-                src: '/public/assets/sulley_sweets_branding.png',
-                alt: "Sulley's Sweets Zen Figma: Mobile, UX & Logo Design"
-            },
-            {
-                src: '/public/assets/sulley_sweets_login.png',
-                alt: "Sulley's Sweets Zen Figma: Mobile, UX & Logo Design"
-            },
-            {
-                src: '/public/assets/sulley_sweets_home.png',
-                alt: "Sulley's Sweets Zen Figma: Mobile, UX & Logo Design"
-            },
-            {
-                src: '/public/assets/sulley_sweets_cart.png',
-                alt: "Sulley's Sweets Zen Figma: Mobile, UX & Logo Design"
-            },
-            {
-                src: '/public/assets/sulley_sweets_product.png',
-                alt: "Sulley's Sweets Zen Figma: Mobile, UX & Logo Design"
-            }
-        ]
-    },
-    {
-        title: "Heaven's Bell: Available in Barnes & Noble",
-        description: 'Procreate: Digital Illustration & Cover Art',
-        testimonials: [{
-            text: "Having worked with Sabrina on my book Heaven's Bell in 2020, I was impressed with her professionalism, artistic abilities and genuine teamwork in the overall success of our publication and production.",
-            author: 'Sherrie Barch'
-        }],
-        images: [
-            {
-                src: '/public/assets/sabrina_book_art.png',
-                alt: "Heaven's Bell Procreate: Digital Illustration & Cover Art"
-            },
-            {
-                src: '/public/assets/sabrina_book_art_page_1.png',
-                alt: "Heaven's Bell Procreate: Digital Illustration & Cover Art"
-            },
-            {
-                src: '/public/assets/sabrina_book_signing.png',
-                alt: "Heaven's Bell Procreate: Digital Illustration & Cover Art"
-            },
-            {
-                src: '/public/assets/sabrina_book_art_page_2.png',
-                alt: "Heaven's Bell Procreate: Digital Illustration & Cover Art"
-            },
-            {
-                src: '/public/assets/sabrina_book_art_page_3.png',
-                alt: "Heaven's Bell Procreate: Digital Illustration & Cover Art"
-            },
-            {
-                src: '/public/assets/sabrina_book_art_page_4.png',
-                alt: "Heaven's Bell Procreate: Digital Illustration & Cover Art"
-            }
-        ]
-    },
-    {
-        title: 'Personal Portfolio',
-        description: 'Procreate: Digital Art',
-        testimonials: [
-            {
-                text: "This is incredible",
-                author: 'Four Walls Whiskey'
-            },
-            {
-                text: "This is incredible. Going to share it tomorrow. Thank you for this",
-                author: 'Josh Malerman Author of Bird Box'
-            }
-        ],
-        images: [
-            {
-                src: '/public/assets/wedding_picture_tyler_sabrina.jpg',
-                alt: "Our wedding drawing"
-            },
-            
-            {
-                src: '/public/assets/chapel_roan.jpg',
-                alt: "Chapel roan"
-            },
-            {
-                src: '/public/assets/golden_god.jpg',
-                alt: "Golden god"
-            },
-            {
-                src: '/public/assets/other_mommy.jpg',
-                alt: "Other mommy"
-            }
-        ]
-    },
-    {
-        title: '2024 FASTA Exhibition',
-        description: 'Featured artwork exhibition',
-        testimonials: [],
-        images: [
-            {
-                src: '/public/assets/parents_art.jpg',
-                alt: "My parents"
-            },
-      
-            {
-                src: '/public/assets/me_fastfa.jpg',
-                alt: "Parents with art at FASTA Exhibition"
-            }
-        ]
-    },
-    {
-        title: "2023 & 2024 HCC Student Juried Art Exhibition",
-        description: 'Selected artwork',
-        testimonials: [],
-        images: [
-            {
-                src: '/public/assets/sabrina_moms_room_page_1.png',
-                alt: "Art exhibition piece"
-            },
-            {
-                src: '/public/assets/sabrina_moms_room_page_2.png',
-                alt: "Art exhibition piece"
-            },
-            {
-                src: '/public/assets/sabrina_moms_room_page_3.png',
-                alt: "Art exhibition piece"
-            },
-            {
-                src: '/public/assets/sabrina_moms_room_page_4.png',
-                alt: "Art exhibition piece"
-            },
-            {
-                src: '/public/assets/profile_picture.jpg',
-                alt: "Me with artwork at exhibition"
-            },
-            {
-                src: '/public/assets/sometimes_dead_is_better.png',
-                alt: 'Sometimes Dead Is Better Illustrator'
-            },
-            {
-                src: '/public/assets/wedding_sunset.png',
-                alt: 'Wedding Sunset Photoshop project'
-            }
-        ]
-    },
-    {
-        title: 'Horror Movie Posters',
-        description: 'Illustrator: Digital Art',
-        testimonials: [],
-        images: [
-            {
-                src: '/public/assets/sabrina_movie_poster_1.jpg',
-                alt: 'Illustrator project for school'
-            },
-            {
-                src: '/public/assets/sabrina_movie_poster_2.png',
-                alt: 'Illustrator project for school'
-            },
-            {
-                src: '/public/assets/sabrina_pet_semetary.png',
-                alt: 'Illustrator project for school'
-            },
-            {
-                src: '/public/assets/sometimes_dead_is_better_2.png',
-                alt: 'Illustrator project for school'
-            },
-            {
-                src: '/public/assets/sabrina_pumpkins.png',
-                alt: 'Illustrator project for school'
-            }
-        ]
-    },
-    {
-        title: 'STKS',
-        description: 'Photoshop: Graphic Design & Trade Show Display',
-        testimonials: [],
-        images: [
-            {
-                src: '/public/assets/sabrina_stks_art_1.png',
-                alt: 'Photoshop trade show project for school'
-            },
-            {
-                src: '/public/assets/sabrina_stks_art_2.jpg',
-                alt: 'Photoshop trade show project for school'
-            },
-            {
-                src: '/public/assets/sabrina_stks_art_3.png',
-                alt: 'Photoshop trade show project for school'
-            },
-            {
-                src: '/public/assets/sabrina_stks_art_4.png',
-                alt: 'Photoshop trade show project for school'
-            }
-        ]
-    },
-    {
-        title: 'Art Ascent Magazine Artists of Abstract | 2020 August edition',
-        description: 'Procreate: Digital Art',
-        testimonials: [],
-        images: [
-            {
-                src: '/public/assets/sabrina_art_ascent_publication.png',
-                alt: 'Procreate Art Magazine entry'
-            }
-        ]
-    },
-    {
-        title: 'Paintings',
-        description: 'Acrylic on canvas',
-        testimonials: [],
-        images: [
-            {
-                src: '/public/assets/sabrina_super_natural.png',
-                alt: 'Acrylic Painting on Canvas'
-            },
-            {
-                src: '/public/assets/sabrina_haunted_house.png',
-                alt: 'Acrylic Painting on Canvas'
-            },
-            {
-                src: '/public/assets/sabrina_rick_and_morty.png',
-                alt: 'Acrylic Painting on Canvas'
-            },
-            {
-                src: '/public/assets/sabrina_haunted_house_2.png',
-                alt: 'Acrylic Painting on Canvas'
-            },
-            {
-                src: '/public/assets/sabrina_it_painting.png',
-                alt: 'Acrylic Painting on Canvas'
-            },
-            {
-                src: '/public/assets/sabrina_snoopy_painting.png',
-                alt: 'Acrylic Painting on Canvas'
-            },
-            {
-                src: '/public/assets/sabrina_grinch_painting.png',
-                alt: 'Acrylic Painting on Canvas'
-            },
-            {
-                src: '/public/assets/sabrina_cat_and_the_hat.png',
-                alt: 'Acrylic Painting on Canvas'
-            }
-        ]
+    // Re-scan once the filter has swapped the cards on screen.
+    useScrollEffects([active])
+
+    const select = (slug: string) => {
+        setParams(slug === 'all' ? {} : { cat: slug }, { replace: true })
     }
-]
 
-export const Gallery = () => {
     return (
-        <div className={styles.gallery}>
-            {projects.map((project: GalleryProject, index) => {
-                return (
-                    <React.Fragment key={index}>
-                        <GalleryProject
-                            {...project}
-                        />
-                        {index !== projects.length - 1 && <div className={appStyles.hr} />}
-                    </React.Fragment>
-                )
-            })}
+        <div className={styles.page}>
+            <header className={styles.header}>
+                <div
+                    data-px="0.24"
+                    aria-hidden="true"
+                    className={styles.flower}
+                >
+                    <Flower
+                        petal="#ECE4E4"
+                        outline="#241B45"
+                    />
+                </div>
+                <div
+                    data-px="-0.3"
+                    aria-hidden="true"
+                    className={styles.sparkle}
+                >
+                    ✳
+                </div>
+
+                <div className={styles.headerInner}>
+                    <div
+                        data-reveal
+                        className={styles.kicker}
+                    >
+                        ( The bulletin board )
+                    </div>
+                    <h1
+                        data-reveal
+                        className={styles.title}
+                    >
+                        Gallery
+                    </h1>
+                </div>
+            </header>
+
+            <div
+                data-reveal
+                className={styles.filterWrap}
+            >
+                <div
+                    className={styles.filters}
+                    role="group"
+                    aria-label="Filter work by category"
+                >
+                    <button
+                        type="button"
+                        onClick={() => select('all')}
+                        aria-pressed={active === 'all'}
+                        className={classNames(styles.chip, { [styles.chipOn]: active === 'all' })}
+                    >
+                        All
+                    </button>
+                    {categories.map((category) => (
+                        <button
+                            key={category.slug}
+                            type="button"
+                            onClick={() => select(category.slug)}
+                            aria-pressed={active === category.slug}
+                            className={classNames(styles.chip, {
+                                [styles.chipOn]: active === category.slug
+                            })}
+                        >
+                            {category.label}
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            <section className={styles.wallSection}>
+                {visible.length > 0 ? (
+                    <div className={styles.wall}>
+                        {visible.map(({ project, pin }, index) => (
+                            <div
+                                key={project.slug}
+                                className={styles.slot}
+                            >
+                                <PinCard
+                                    project={project}
+                                    rotate={pin.rotate}
+                                    tape={pin.tape}
+                                    eager={index < 4}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p className={styles.empty}>No pieces in this category yet — check back soon ✳</p>
+                )}
+            </section>
+
+            <section className={styles.cta}>
+                <ContactCta secondary={{ label: '← Back home', to: '/' }} />
+                <SiteFooter bordered={false} />
+            </section>
         </div>
     )
 }
+
+export default Gallery

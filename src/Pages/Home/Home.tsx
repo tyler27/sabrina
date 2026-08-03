@@ -1,25 +1,34 @@
 import React from 'react'
 
-import { ProjectGallery } from './ProjectGallery'
-import { ContactMe } from './ContactMe'
-import { SkillsAndRewardsComponent } from './SkillsAndRewardsComponent'
-import { InfoComponent } from './InfoComponent'
+import { Marquee } from '../../components/Marquee/Marquee'
+import { useScrollEffects } from '../../hooks/useScrollEffects'
+import { usePageChrome } from '../../hooks/usePageChrome'
 
-import 'react-image-gallery/styles/css/image-gallery.css'
-import styles from './Home.module.scss'
+import { Hero } from './sections/Hero'
+import { About } from './sections/About'
+import { Work } from './sections/Work'
+import { Pinboard } from './sections/Pinboard'
+import { Skills } from './sections/Skills'
+import { Contact } from './sections/Contact'
 
-import appStyles from '../../App.module.scss'
+const Home: React.FC = () => {
+    usePageChrome({
+        description:
+            'Sabrina Delila Telis is a freelance graphic designer and illustrator in Apollo Beach, Florida, working across illustration, brand identity, editorial and digital art.'
+    })
+    useScrollEffects()
 
-const Home = () => (
-    <div className={styles.home}>
-        <InfoComponent />
-        <div className={appStyles.hr} />
-        <SkillsAndRewardsComponent />
-        <div className={appStyles.hr} />
-        <ProjectGallery />
-        <div className={appStyles.hr} />
-        <ContactMe />
-    </div>
-)
+    return (
+        <>
+            <Hero />
+            <Marquee />
+            <About />
+            <Work />
+            <Pinboard />
+            <Skills />
+            <Contact />
+        </>
+    )
+}
 
 export default Home

@@ -1,0 +1,455 @@
+@import '../../../styles/tokens';
+
+$cluster-breakpoint: 900px;
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: $menubar-height 0 0;
+}
+
+.inner {
+    position: relative;
+    z-index: 3;
+    max-width: $max-width-hero;
+    margin: 0 auto;
+    padding: clamp(40px, 7vh, 90px) $gutter 60px;
+    min-height: calc(100vh - #{$menubar-height});
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+}
+
+// ---- floating decor ----
+.floater {
+    position: absolute;
+    z-index: 1;
+}
+
+.sparkleA {
+    --r: -8deg;
+    top: 16%;
+    left: 6%;
+    font-size: 46px;
+    color: $gold;
+    animation: sda-spin 20s linear infinite;
+}
+
+.sparkleB {
+    --r: 12deg;
+    top: 62%;
+    left: 3%;
+    font-size: 30px;
+    color: $lilac;
+    animation: sda-floaty 7s ease-in-out infinite;
+}
+
+.sparkleC {
+    top: 22%;
+    right: 7%;
+    font-size: 54px;
+    color: $lilac;
+    animation: sda-spin 26s linear infinite reverse;
+}
+
+.flowerA {
+    --r: 20deg;
+    bottom: 12%;
+    right: 30%;
+    width: 118px;
+    height: 118px;
+    animation: sda-floaty 9s ease-in-out infinite;
+}
+
+.flowerB {
+    --r: 20deg;
+    top: 28%;
+    left: 42%;
+    width: 84px;
+    height: 84px;
+    z-index: 0;
+    animation: sda-floaty 11s ease-in-out infinite;
+}
+
+// ---- intro copy ----
+.intro {
+    position: relative;
+}
+
+.greeting {
+    font-family: $font-hand;
+    font-size: clamp(28px, 3vw, 40px);
+    @include outlined-text(1px);
+    transform: rotate(-3deg);
+    margin-bottom: 6px;
+}
+
+.name {
+    margin: 0;
+    font-family: $font-display;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    font-size: clamp(52px, 8.5vw, 118px);
+
+    span {
+        display: block;
+    }
+}
+
+.nameAccent {
+    @include outlined-text(1.8px);
+}
+
+.role {
+    margin-top: 18px;
+    @include mono-label(clamp(12px, 1.2vw, 14px));
+    letter-spacing: 0.14em;
+    color: $muted;
+}
+
+.tagline {
+    margin: 30px 0 0;
+    font-family: $font-display;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    font-size: clamp(22px, 2.4vw, 34px);
+    max-width: 18ch;
+}
+
+.lilac {
+    color: $lilac-light;
+}
+
+.gold {
+    @include outlined-text(1px);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+}
+
+.primary,
+.secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-family: $font-mono;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+}
+
+.primary {
+    background: $ink;
+    color: $paper;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.secondary {
+    background: transparent;
+    color: $ink;
+    border: 1.5px solid $ink;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+    &:hover {
+        background: $ink;
+        color: $paper;
+    }
+}
+
+// ---- scrapbook cluster ----
+.scrapbook {
+    position: relative;
+    height: clamp(420px, 52vw, 560px);
+}
+
+.polaroid {
+    position: absolute;
+    top: 136px;
+    left: -124px;
+    width: #{'min(64%, 300px)'};
+    filter: drop-shadow(0 18px 34px rgba(42, 38, 32, 0.26));
+    transform: rotate(-5deg);
+    z-index: 5;
+    touch-action: pan-y;
+}
+
+.polaroidTape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 120px;
+    height: 34px;
+    background: $tape;
+    transform: translateX(-50%) rotate(-4deg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+}
+
+.polaroidImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.polaroidCaption {
+    position: absolute;
+    bottom: 3.5%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: $font-hand;
+    font-size: 26px;
+    color: $ink;
+}
+
+.sticky {
+    position: absolute;
+    top: 0;
+    right: -2%;
+    width: clamp(120px, 15vw, 150px);
+    background: $gold;
+    padding: 16px 14px;
+    box-shadow: 0 10px 22px rgba(42, 38, 32, 0.18);
+    transform: rotate(6deg);
+    font-family: $font-hand;
+    font-size: 21px;
+    line-height: 1.15;
+    color: $ink;
+    z-index: 6;
+    touch-action: pan-y;
+}
+
+.ticketStack {
+    position: absolute;
+    bottom: 16%;
+    right: -13%;
+    width: clamp(280px, 34vw, 360px);
+    transform: rotate(4deg);
+    z-index: 4;
+}
+
+.ticketLayers {
+    position: relative;
+}
+
+.layer {
+    position: absolute;
+    inset: 0;
+    transform-origin: bottom right;
+}
+
+.layer1 {
+    transform: rotate(-21deg);
+    z-index: 0;
+}
+
+.layer2 {
+    transform: rotate(-14deg);
+    z-index: 1;
+}
+
+.layer3 {
+    transform: rotate(-7deg);
+    z-index: 2;
+}
+
+.layerFront {
+    position: relative;
+    z-index: 3;
+}
+
+// ---- ticket ----
+.ticket {
+    background: $ink;
+    border-radius: 9px;
+    padding: 7px;
+    box-shadow: 0 10px 22px rgba(70, 52, 115, 0.24);
+    // Punches the row of notches down both edges.
+    -webkit-mask: radial-gradient(circle 5.5px at 100% 9px, #0000 5.5px, #000 6px) 0 0 / 100% 18px repeat-y;
+    mask: radial-gradient(circle 5.5px at 100% 9px, #0000 5.5px, #000 6px) 0 0 / 100% 18px repeat-y;
+}
+
+.ticketInner {
+    display: flex;
+    align-items: stretch;
+    gap: 9px;
+}
+
+.stub {
+    position: relative;
+    width: 40px;
+    background: #e9e1ec url('/public/assets/redesign/ticket-texture.webp') center / cover;
+    background-blend-mode: multiply;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+.perforation {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    right: -6px;
+    border-left: 2px dashed rgba(236, 228, 228, 0.92);
+}
+
+.stubText {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: $font-mono;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: $lilac;
+}
+
+.ticketBody {
+    flex: 1;
+    background: #e9e1ec url('/public/assets/redesign/ticket-texture.webp') center / cover;
+    background-blend-mode: multiply;
+    border-radius: 6px;
+    padding: 15px 18px 14px;
+    text-align: center;
+}
+
+.ticketTitle {
+    font-family: $font-serif;
+    font-weight: 600;
+    font-size: clamp(24px, 3.7vw, 38px);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+    color: $ink;
+}
+
+.ticketRule {
+    height: 0;
+    border-top: 1.5px solid $lilac;
+    width: 80%;
+    margin: 10px auto 8px;
+    box-shadow: 0 3px 0 -1.5px $lilac;
+}
+
+.ticketMeta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: $font-mono;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: $muted;
+}
+
+.star {
+    @include outlined-text(0.7px);
+    font-size: 14px;
+}
+
+// ---- scroll hint ----
+.scrollHint {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    @include mono-label(10px);
+    color: $muted;
+}
+
+.arrow {
+    animation: sda-bob 1.8s ease-in-out infinite;
+}
+
+/*
+ * The cluster is positioned by hand for the two-column layout. Once the grid
+ * collapses, those offsets would push the polaroid and ticket off-canvas, so
+ * below this width the scraps stack in normal flow instead.
+ */
+@media (max-width: $cluster-breakpoint) {
+    .scrapbook {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 26px;
+        padding-top: 12px;
+    }
+
+    .polaroid,
+    .sticky,
+    .ticketStack {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+    }
+
+    .polaroid {
+        width: #{'min(78%, 300px)'};
+        order: 1;
+    }
+
+    .sticky {
+        order: 2;
+        align-self: flex-end;
+        margin-right: 8%;
+        margin-top: -70px;
+    }
+
+    .ticketStack {
+        order: 3;
+        width: #{'min(100%, 340px)'};
+        margin-top: 8px;
+    }
+
+    // The fanned-out copies need room that the stacked layout does not have.
+    .layer {
+        display: none;
+    }
+
+    .flowerA,
+    .flowerB,
+    .sparkleB {
+        display: none;
+    }
+
+    .scrollHint {
+        display: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .sticky {
+        margin-right: 0;
+        align-self: center;
+        margin-top: 0;
+    }
+}

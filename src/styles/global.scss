@@ -1,0 +1,169 @@
+@import './tokens';
+
+// NOTE: compiled with node-sass (libsass), so `@import` rather than `@use`, and
+// CSS `min()`/`max()` must be interpolated to avoid colliding with Sass builtins.
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    // The fixed menu bar would otherwise cover anchor targets.
+    scroll-padding-top: $menubar-height + 12px;
+}
+
+body {
+    margin: 0;
+    color: $ink;
+    font-family: $font-body;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+
+    background-color: $paper;
+    background-image:
+        linear-gradient(rgba(138, 116, 193, 0.32) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138, 116, 193, 0.32) 1px, transparent 1px),
+        radial-gradient(circle at 25% 15%, rgba(0, 0, 0, 0.035), transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(120, 110, 140, 0.05), transparent 55%);
+    background-size:
+        48px 48px,
+        48px 48px,
+        100% 100%,
+        100% 100%;
+    background-position:
+        -1px -1px,
+        -1px -1px,
+        0 0,
+        0 0;
+    background-attachment: fixed;
+}
+
+// Gallery runs on the dark corkboard; set on <html> so overscroll matches.
+html[data-theme='dark'] body {
+    background-color: $ink;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+    color: $on-dark;
+}
+
+::selection {
+    background: $lilac;
+    color: $paper;
+}
+
+html[data-theme='dark'] ::selection {
+    background: $gold;
+    color: $ink;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 2.5px solid $lilac;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+html[data-theme='dark'] :focus-visible {
+    outline-color: $gold;
+}
+
+// Visible only to screen readers.
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// ---- scroll reveal ----
+// Elements only start hidden once the reveal controller has mounted, so a JS
+// failure leaves the page fully readable instead of blank.
+html.sda-reveal-ready [data-reveal] {
+    opacity: 0;
+}
+
+html.sda-reveal-ready [data-reveal].is-revealed {
+    animation: sda-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+// ---- keyframes ----
+@keyframes sda-rise {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes sda-floaty {
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--r, 0deg));
+    }
+    50% {
+        transform: translateY(-16px) rotate(var(--r, 0deg));
+    }
+}
+
+@keyframes sda-spin {
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes sda-bob {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+@keyframes sda-marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    html.sda-reveal-ready [data-reveal] {
+        opacity: 1;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}

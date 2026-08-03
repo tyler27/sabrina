@@ -1,0 +1,20 @@
+@import '../../styles/tokens';
+
+.flower {
+    overflow: visible;
+}
+
+.folder {
+    display: block;
+    margin: 0 auto 8px;
+}
+
+.grain {
+    position: fixed;
+    inset: 0;
+    z-index: 160;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

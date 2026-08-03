@@ -19,7 +19,7 @@ module.exports = {
         changeOrigin: true
       }
     },
-    historyApiFallback: { index: '/', disableDotRule: true }
+    historyApiFallback: { index: '/index.html', disableDotRule: true }
   },
   entry: './src/index.tsx',
   module: {
@@ -33,7 +33,14 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              // `auto` scopes *.module.scss only; plain .scss/.css stay global.
+              modules: {
+                auto: /\.module\.\w+$/,
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+                namedExport: false,
+                exportLocalsConvention: 'asIs'
+              }
             }
           },
           {
@@ -57,6 +64,8 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
+    // Matches production so deep routes resolve their bundles identically.
+    publicPath: '/'
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -70,7 +79,11 @@ module.exports = {
         extensions: ['ts', 'tsx']
     }),
     new CopyPlugin({
-      patterns: [{ from: "./public/assets/", to: "/public/assets/" }],
+      patterns: [
+        { from: './public/assets/', to: 'public/assets/' },
+        { from: './public/robots.txt', to: 'robots.txt' },
+        { from: './public/manifest.json', to: 'manifest.json' }
+      ],
     }),
   ]
 }

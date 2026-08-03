@@ -20,6 +20,13 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
+              // `auto` scopes *.module.scss only; plain .scss/.css stay global.
+              modules: {
+                auto: /\.module\.\w+$/,
+                localIdentName: "[hash:base64:8]",
+                namedExport: false,
+                exportLocalsConvention: "asIs",
+              },
             },
           },
           {
@@ -42,7 +49,11 @@ module.exports = {
   },
   output: {
     filename: "[name].[contenthash].js",
+    chunkFilename: "[name].[contenthash].chunk.js",
     path: path.resolve(__dirname, "dist"),
+    // Absolute, so bundles still resolve on deep routes like /project/triad.
+    // With the default ("auto") the browser would ask for /project/main.js.
+    publicPath: "/",
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -51,9 +62,21 @@ module.exports = {
       inject: true,
       template: path.resolve(__dirname, "src", "index.html"),
     }),
+    // DigitalOcean static sites serve 404.html for any unmatched path. Shipping
+    // the app under that name makes client-side routes work on a hard refresh
+    // even if `catchall_document` is not configured on the app spec.
+    new HtmlWebpackPlugin({
+      filename: "404.html",
+      inject: true,
+      template: path.resolve(__dirname, "src", "index.html"),
+    }),
     new MiniCssExtractPlugin(),
     new CopyPlugin({
-      patterns: [{ from: "./public/assets/", to: "public/assets/" }],
+      patterns: [
+        { from: "./public/assets/", to: "public/assets/" },
+        { from: "./public/robots.txt", to: "robots.txt" },
+        { from: "./public/manifest.json", to: "manifest.json" },
+      ],
     }),
   ],
 };

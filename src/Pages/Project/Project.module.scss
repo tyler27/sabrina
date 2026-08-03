@@ -1,0 +1,495 @@
+@import '../../styles/tokens';
+
+// ---- header ----
+.header {
+    position: relative;
+    padding: clamp(70px, 12vh, 140px) $gutter clamp(28px, 4vh, 44px);
+    overflow: hidden;
+}
+
+.headerInner {
+    position: relative;
+    z-index: 2;
+    @include container;
+}
+
+.sparkle {
+    --r: -8deg;
+    position: absolute;
+    top: 26%;
+    right: 7%;
+    font-size: 46px;
+    @include outlined-text(1px);
+    z-index: 0;
+    animation: sda-spin 22s linear infinite;
+}
+
+.flower {
+    --r: 20deg;
+    position: absolute;
+    bottom: 8%;
+    right: 4%;
+    width: 90px;
+    height: 90px;
+    z-index: 0;
+    animation: sda-floaty 10s ease-in-out infinite;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-mono;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: $muted;
+    margin-bottom: 24px;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $ink;
+    }
+}
+
+.kicker {
+    @include mono-label;
+    color: $lilac;
+    margin-bottom: 14px;
+}
+
+.title {
+    margin: 0;
+    font-family: $font-display;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    font-size: clamp(44px, 8.5vw, 120px);
+}
+
+.blurb {
+    margin: 24px 0 0;
+    max-width: 52ch;
+    font-size: clamp(18px, 1.7vw, 24px);
+    line-height: 1.5;
+    color: $body;
+}
+
+// ---- hero ----
+.heroSection {
+    position: relative;
+    padding: 0 $gutter;
+}
+
+.heroInner {
+    @include container;
+}
+
+.heroFrame {
+    position: relative;
+    background: $card;
+    padding: 16px 16px 20px;
+    border-radius: 4px;
+    box-shadow: $shadow-pop;
+    transform: rotate(-1deg);
+}
+
+.heroTape {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    width: 120px;
+    height: 30px;
+    background: $tape;
+    transform: translateX(-50%) rotate(-3deg);
+}
+
+.heroImage {
+    aspect-ratio: 16 / 10;
+    border-radius: 3px;
+    background-color: #e7dcee;
+    background-repeat: no-repeat;
+}
+
+.heroNatural {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+}
+
+.heroGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.heroGridCell {
+    aspect-ratio: 4 / 5;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #e7dcee;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// ---- body ----
+.body {
+    position: relative;
+    padding: clamp(50px, 8vh, 90px) $gutter clamp(30px, 5vh, 60px);
+}
+
+.bodyInner {
+    @include container;
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) minmax(0, 2fr);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+}
+
+.details {
+    position: relative;
+    background: $gold;
+    padding: 26px 24px;
+    box-shadow: 0 14px 30px rgba(70, 52, 115, 0.16);
+    transform: rotate(-1.5deg);
+}
+
+.pin {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: $lilac;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.detailsTitle {
+    margin: 0 0 16px;
+    font-family: $font-hand;
+    font-size: 30px;
+    color: $ink;
+}
+
+.detailsList {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 15px;
+
+    dt {
+        font-family: $font-mono;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #8a7420;
+    }
+
+    dd {
+        margin: 3px 0 0;
+        color: #3a3320;
+    }
+}
+
+.copy {
+    min-width: 0;
+}
+
+.copyKicker {
+    @include mono-label;
+    color: $lilac;
+    margin-bottom: 14px;
+}
+
+.prose {
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.65;
+    color: $body;
+    max-width: 62ch;
+
+    p {
+        margin: 0 0 18px;
+    }
+
+    a {
+        color: $lilac;
+        text-decoration: underline;
+    }
+}
+
+// ---- pdf ----
+.pdfSection {
+    position: relative;
+    padding: clamp(10px, 3vh, 30px) $gutter clamp(20px, 4vh, 40px);
+}
+
+.pdfInner {
+    @include container;
+}
+
+.pdfLink {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: $card;
+    border: 1.5px solid $ink;
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 14px 30px rgba(70, 52, 115, 0.14);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(70, 52, 115, 0.2);
+    }
+}
+
+.pdfIcon {
+    flex: none;
+    position: relative;
+    width: 52px;
+    height: 64px;
+    background: $gold;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(70, 52, 115, 0.2);
+}
+
+.pdfFold {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background: $ink;
+    border-radius: 0 4px 0 8px;
+}
+
+.pdfLabel {
+    position: absolute;
+    bottom: 9px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: $font-mono;
+    font-size: 10px;
+    font-weight: 700;
+    color: $ink;
+}
+
+.pdfText {
+    flex: 1;
+    min-width: 0;
+}
+
+.pdfKicker {
+    display: block;
+    @include mono-label;
+    letter-spacing: 0.14em;
+    color: $lilac;
+    margin-bottom: 6px;
+}
+
+.pdfTitle {
+    display: block;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: clamp(19px, 2vw, 24px);
+    letter-spacing: -0.01em;
+    color: $ink;
+}
+
+.pdfNote {
+    display: block;
+    font-size: 15px;
+    color: $muted;
+    margin-top: 4px;
+}
+
+.pdfArrow {
+    flex: none;
+    font-size: 22px;
+    color: $ink;
+}
+
+// ---- gallery ----
+.gallerySection {
+    position: relative;
+    padding: clamp(20px, 4vh, 50px) $gutter clamp(60px, 9vh, 110px);
+}
+
+.galleryInner {
+    @include container;
+}
+
+.galleryTitle {
+    margin: 0 0 clamp(24px, 4vh, 40px);
+    font-family: $font-display;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: clamp(28px, 4vw, 48px);
+}
+
+.galleryColumns {
+    columns: 3 240px;
+    column-gap: clamp(16px, 2vw, 26px);
+}
+
+.galleryGrid {
+    display: grid;
+    gap: clamp(16px, 2vw, 26px);
+    align-items: start;
+}
+
+.galleryCentered {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(16px, 2vw, 26px);
+}
+
+.plate {
+    break-inside: avoid;
+    position: relative;
+    margin: 14px 0 clamp(16px, 2vw, 26px);
+    background: $card;
+    padding: 12px;
+    border-radius: 3px;
+    box-shadow: 0 14px 30px rgba(70, 52, 115, 0.18);
+}
+
+.plateFixed {
+    width: 240px;
+}
+
+.plateTape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 90px;
+    height: 24px;
+    background: rgba(154, 140, 200, 0.4);
+    box-shadow: 0 1px 2px rgba(70, 52, 115, 0.12);
+}
+
+.plateFrame {
+    border-radius: 2px;
+    overflow: hidden;
+    background: #e7dcee;
+}
+
+.plateMedia {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.plateCaption {
+    font-family: $font-hand;
+    font-size: 19px;
+    color: $ink;
+    margin-top: 6px;
+    text-align: center;
+}
+
+// ---- closing CTA ----
+.cta {
+    position: relative;
+    padding: clamp(50px, 8vh, 90px) $gutter 70px;
+    background: $ink;
+    color: $on-dark;
+    overflow: hidden;
+}
+
+.ctaSparkle {
+    position: absolute;
+    top: 20%;
+    right: 8%;
+    font-size: 40px;
+    @include outlined-text(1px, $gold, $ink-deep);
+    animation: sda-spin 24s linear infinite;
+}
+
+.ctaInner {
+    position: relative;
+    z-index: 2;
+    @include container;
+    text-align: center;
+}
+
+// ---- not found ----
+.notFound {
+    @include container(760px);
+    padding: clamp(120px, 22vh, 220px) $gutter clamp(80px, 14vh, 160px);
+    text-align: center;
+}
+
+.notFoundTitle {
+    margin: 0;
+    font-family: $font-display;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.98;
+    font-size: clamp(32px, 5vw, 56px);
+}
+
+.notFoundBody {
+    margin: 18px 0 28px;
+    font-size: clamp(16px, 1.4vw, 19px);
+    line-height: 1.6;
+    color: $body;
+}
+
+.notFoundLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: $ink;
+    color: $paper;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-family: $font-mono;
+    font-size: 13px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+@media (max-width: 860px) {
+    .bodyInner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .details {
+        order: 2;
+        max-width: 340px;
+    }
+
+    .copy {
+        order: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .galleryGrid {
+        // The per-project column counts are tuned for desktop widths.
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .pdfLink {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+}

@@ -1,103 +1,140 @@
-.gallery {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  max-width: 80%;
+@import '../../styles/tokens';
 
-  .project {
+.page {
+    position: relative;
+    min-height: 100vh;
+    color: $on-dark;
+}
+
+.header {
+    position: relative;
+    padding: clamp(70px, 13vh, 150px) $gutter clamp(28px, 4vh, 44px);
+    overflow: hidden;
+}
+
+.headerInner {
+    position: relative;
+    z-index: 2;
+    @include container;
+}
+
+.flower {
+    position: absolute;
+    top: 30%;
+    right: 8%;
+    width: 96px;
+    height: 96px;
+    z-index: 1;
+    animation: sda-floaty 9s ease-in-out infinite;
+}
+
+.sparkle {
+    position: absolute;
+    top: 24%;
+    left: 5%;
+    font-size: 44px;
+    @include outlined-text(1px, $gold, $ink-deep);
+    z-index: 1;
+    animation: sda-spin 24s linear infinite;
+}
+
+.kicker {
+    @include mono-label;
+    color: $gold;
+    margin-bottom: 16px;
+}
+
+.title {
+    margin: 0;
+    font-family: $font-display;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 0.88;
+    font-size: clamp(52px, 11vw, 150px);
+}
+
+// ---- filters ----
+// Padding first, container inside — matching the header and wall so the chips
+// line up with the cards rather than sitting a gutter narrower.
+.filterWrap {
+    position: relative;
+    z-index: 2;
+    padding: 0 $gutter;
+}
+
+.filters {
+    @include container;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: clamp(28px, 4vh, 44px);
+    font-family: $font-mono;
+    font-size: 13px;
+}
+
+.chip {
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: $on-dark-muted;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+
+    &:hover {
+        border-color: $gold;
+        color: $gold;
+    }
+}
+
+.chipOn {
+    background: $gold;
+    border-color: $gold;
+    color: $ink;
+    font-weight: 700;
+
+    &:hover {
+        color: $ink;
+    }
+}
+
+// ---- wall ----
+.wallSection {
+    position: relative;
+    z-index: 2;
+    padding: 0 $gutter clamp(70px, 10vh, 120px);
+}
+
+.wall {
+    @include container;
+    columns: 4 230px;
+    column-gap: clamp(16px, 2vw, 26px);
+}
+
+.slot {
+    break-inside: avoid;
+    margin-bottom: clamp(16px, 2vw, 26px);
+    // Room for the tape strips, which sit above the card's own box.
+    padding-top: 16px;
+}
+
+.empty {
     text-align: center;
+    color: $on-dark-muted;
+    font-family: $font-mono;
+    font-size: 14px;
+    padding: 40px 0;
+}
 
-    .testimonial {
-      text-align: center;
-      font-style: italic;
-    }
-
-    .imageGallery {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 4px;
-
-      @media screen and (min-width: 1150px) {
-        flex-direction: row;
-      }
-      
-      li {
-        margin: 5px;
-        position: relative;
-        border-radius: 10px;
-        overflow: hidden;
-        transition: transform 0.3s ease;
-        
-        &:hover {
-          z-index: 10;
-          transform: translateY(-5px) scale(1.05);
-        }
-      }
-      
-      li img {
-        max-height: 160px;
-        max-width: 160px;
-        object-fit: contain;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        background-color: rgba(255, 255, 255, 0.8);
-        
-        @media screen and (min-width: 1150px) {
-          max-height: 160px;
-          max-width: 160px;
-        }
-        
-        &:hover {
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-          filter: brightness(1.05);
-          cursor: pointer;
-        }
-      }
-    }
-  }
-
-  .cardItem {
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.5s ease;
-      transform: translateX(-100%);
-      pointer-events: none;
-      border-radius: 8px;
-    }
-    
-    &:hover::after {
-      opacity: 1;
-      transform: translateX(100%);
-    }
-  }
-
-  .project ul {
-    list-style: none;
-    padding: 8px;
-  }
-
-  .project > li {
-    flex-basis: 160px;
-  }
+// ---- closing CTA ----
+.cta {
+    position: relative;
+    z-index: 2;
+    padding: clamp(50px, 8vh, 90px) $gutter 60px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
 }

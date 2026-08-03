@@ -1,0 +1,34 @@
+@import '../../styles/tokens';
+
+.marquee {
+    background: $ink;
+    color: $paper;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 14px 0;
+    border-top: 1.5px solid $ink;
+    border-bottom: 1.5px solid $ink;
+}
+
+.track {
+    display: inline-flex;
+    animation: sda-marquee 28s linear infinite;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: clamp(18px, 2.4vw, 30px);
+}
+
+.run {
+    display: inline-flex;
+}
+
+.word,
+.sparkle {
+    padding: 0 26px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .track {
+        animation: none;
+    }
+}

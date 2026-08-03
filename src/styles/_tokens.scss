@@ -1,0 +1,85 @@
+// Design tokens for the Sabrina Delila Arts scrapbook/desktop identity.
+// Values mirror the Claude Design source (Sabrina Delila Arts v2).
+
+// ---- palette ----
+$ink: #463473; // primary purple — text, borders, dark surfaces
+$ink-deep: #241b45; // outline on light-on-dark decor
+$paper: #ece4e4; // page background
+$card: #faf6fb; // polaroid / paper card white
+$gold: #f1db94; // accent yellow
+$lilac: #8a74c1;
+$lilac-light: #9b8bd4;
+$lilac-pale: #a59ccf;
+$plum: #7c63b9;
+$grape: #4a377b;
+$deep: #5d4d94;
+$rose: #cbacb1;
+$rose-dark: #7a4b6e;
+
+$muted: #6e6786; // mono captions / secondary text
+$body: #4a4258; // long-form body copy
+$on-dark: #ece4e4;
+$on-dark-muted: #c8bfd6;
+$on-dark-faint: #9a8fc0;
+
+$tape: rgba(154, 140, 200, 0.5);
+$tape-rose: rgba(203, 172, 177, 0.6);
+$tape-lilac: rgba(165, 156, 207, 0.6);
+$tape-plum: rgba(124, 99, 185, 0.55);
+$tape-mauve: rgba(177, 144, 157, 0.6);
+
+// ---- type ----
+$font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+$font-body: 'Schibsted Grotesk', system-ui, sans-serif;
+$font-hand: 'Caveat', cursive;
+$font-serif: 'Newsreader', Georgia, serif;
+$font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+// ---- layout ----
+$menubar-height: 38px;
+$max-width: 1180px;
+$max-width-hero: 1280px;
+$gutter: clamp(20px, 5vw, 64px);
+
+// ---- elevation ----
+$shadow-card: 0 14px 30px rgba(42, 38, 32, 0.22);
+$shadow-card-dark: 0 14px 30px rgba(0, 0, 0, 0.3);
+$shadow-pop: 0 22px 50px rgba(70, 52, 115, 0.24);
+
+// ---- helpers ----
+
+// Yellow fill with a purple outline, used on emphasised display words.
+@mixin outlined-text($width: 1px, $fill: $gold, $stroke: $ink) {
+    color: $fill;
+    -webkit-text-stroke: $width $stroke;
+    paint-order: stroke fill;
+}
+
+@mixin mono-label($size: 12px) {
+    font-family: $font-mono;
+    font-size: $size;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+@mixin section-shell($top: clamp(70px, 11vh, 130px), $bottom: clamp(70px, 11vh, 130px)) {
+    position: relative;
+    padding: $top $gutter $bottom;
+    overflow: hidden;
+}
+
+@mixin container($width: $max-width) {
+    max-width: $width;
+    margin: 0 auto;
+}
+
+// A strip of masking tape pinning an element to the board.
+@mixin tape($width: 90px, $height: 24px, $color: $tape) {
+    content: '';
+    position: absolute;
+    width: $width;
+    height: $height;
+    background: $color;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+}
