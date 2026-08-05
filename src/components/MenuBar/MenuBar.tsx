@@ -9,13 +9,16 @@ import styles from './MenuBar.module.scss'
 interface NavItem {
     label: string
     to: string
+    /** Set for destinations off the site, which open in a new tab. */
+    external?: boolean
 }
 
 const items: NavItem[] = [
     { label: 'About', to: '/#about' },
     { label: 'Work', to: '/#work' },
     { label: 'Gallery', to: '/gallery' },
-    { label: 'Contact', to: '/#contact' }
+    { label: 'Contact', to: '/#contact' },
+    { label: 'Shop', to: site.etsy, external: true }
 ]
 
 /**
@@ -88,17 +91,29 @@ export const MenuBar: React.FC = () => {
                     className={classNames(styles.links, { [styles.open]: open })}
                     aria-label="Primary"
                 >
-                    {items.map((item) => (
-                        <Link
-                            key={item.to}
-                            to={item.to}
-                            className={classNames(styles.link, {
-                                [styles.active]: item.to === '/gallery' && isGallery
-                            })}
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
+                    {items.map((item) =>
+                        item.external ? (
+                            <a
+                                key={item.to}
+                                href={item.to}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.link}
+                            >
+                                {item.label}
+                            </a>
+                        ) : (
+                            <Link
+                                key={item.to}
+                                to={item.to}
+                                className={classNames(styles.link, {
+                                    [styles.active]: item.to === '/gallery' && isGallery
+                                })}
+                            >
+                                {item.label}
+                            </Link>
+                        )
+                    )}
                 </nav>
             </div>
 

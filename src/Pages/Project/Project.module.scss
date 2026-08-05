@@ -1,4 +1,5 @@
 @import '../../styles/tokens';
+@import '../../styles/motion';
 
 // ---- header ----
 .header {
@@ -25,14 +26,16 @@
 }
 
 .flower {
-    --r: 20deg;
     position: absolute;
     bottom: 8%;
     right: 4%;
     width: 90px;
     height: 90px;
     z-index: 0;
-    animation: sda-floaty 10s ease-in-out infinite;
+    // Bob on `transform`, turn on `rotate` — see the note in Hero.module.scss.
+    animation:
+        sda-floaty 10s ease-in-out infinite,
+        sda-spin 66s linear infinite reverse;
 }
 
 .back {
@@ -101,6 +104,19 @@
     height: 30px;
     background: $tape;
     transform: translateX(-50%) rotate(-3deg);
+}
+
+// The hero opens in the viewer, so each variant is a button; the resets keep it
+// looking exactly like the plain image it replaces.
+.heroImage,
+.heroNaturalButton,
+.heroGridCell {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
 }
 
 .heroImage {
@@ -358,18 +374,32 @@
     gap: clamp(16px, 2vw, 26px);
 }
 
-.plate {
+/*
+ * The headroom for the tape is padding on a wrapper rather than a margin on the
+ * plate itself. A multi-column container truncates the leading margin of
+ * whichever item starts a column, which let the tape — pinned 12px above the
+ * plate — overflow the top of its column; Chrome then re-drew the overflowing
+ * slice as a stray strip at the foot of the previous column. Padding survives
+ * the column break, so the tape stays inside the fragment it belongs to. The
+ * gallery and pinboard walls use the same wrapper for the same reason.
+ */
+.slot {
     break-inside: avoid;
+    padding-top: 14px;
+    margin-bottom: clamp(16px, 2vw, 26px);
+}
+
+.slotFixed {
+    width: 240px;
+}
+
+.plate {
     position: relative;
-    margin: 14px 0 clamp(16px, 2vw, 26px);
+    margin: 0;
     background: $card;
     padding: 12px;
     border-radius: 3px;
     box-shadow: 0 14px 30px rgba(70, 52, 115, 0.18);
-}
-
-.plateFixed {
-    width: 240px;
 }
 
 .plateTape {
@@ -383,9 +413,25 @@
 }
 
 .plateFrame {
+    display: block;
+    width: 100%;
     border-radius: 2px;
     overflow: hidden;
     background: #e7dcee;
+}
+
+// The still images open in the viewer, so they are buttons rather than plain
+// figures; strip the control chrome back to the frame it replaces.
+.plateButton {
+    padding: 0;
+    border: 0;
+    background: #e7dcee;
+    cursor: zoom-in;
+    transition: filter 0.2s ease;
+
+    &:hover {
+        filter: brightness(1.05);
+    }
 }
 
 .plateMedia {

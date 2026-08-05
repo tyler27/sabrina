@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Sabrina Delila Arts">
+  <!--
+    The site mark: the daisy that recurs across the pages, set in a disc so it
+    reads at favicon sizes. Palette and the 20 degree tilt match the artwork in
+    src/components/Decor/Decor.tsx. Deliberately free of outlines and fine
+    detail — at 16px anything thinner than the gold ring turns to mush.
+  -->
+  <circle cx="50" cy="50" r="50" fill="#463473"/>
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#F1DB94" stroke-width="3.5"/>
+  <g transform="rotate(20 50 50)" fill="#FAF6FB">
+    <ellipse cx="50" cy="27" rx="9.5" ry="15"/>
+    <ellipse cx="50" cy="27" rx="9.5" ry="15" transform="rotate(45 50 50)"/>
+    <ellipse cx="50" cy="27" rx="9.5" ry="15" transform="rotate(90 50 50)"/>
+    <ellipse cx="50" cy="27" rx="9.5" ry="15" transform="rotate(135 50 50)"/>
+    <ellipse cx="50" cy="27" rx="9.5" ry="15" transform="rotate(180 50 50)"/>
+    <ellipse cx="50" cy="27" rx="9.5" ry="15" transform="rotate(225 50 50)"/>
+    <ellipse cx="50" cy="27" rx="9.5" ry="15" transform="rotate(270 50 50)"/>
+    <ellipse cx="50" cy="27" rx="9.5" ry="15" transform="rotate(315 50 50)"/>
+  </g>
+  <circle cx="50" cy="50" r="11" fill="#F1DB94"/>
+</svg>

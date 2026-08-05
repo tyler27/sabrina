@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { PinCard } from '../../components/PinCard/PinCard'
 import { ContactCta } from '../../components/ContactCta/ContactCta'
 import { SiteFooter } from '../../components/SiteFooter/SiteFooter'
-import { Flower } from '../../components/Decor/Decor'
+import { Asterisk, Flower } from '../../components/Decor/Decor'
 import { useScrollEffects } from '../../hooks/useScrollEffects'
 import { usePageChrome } from '../../hooks/usePageChrome'
 import { categories, galleryOrder, resolveCategory } from '../../data/projects'
@@ -71,7 +71,7 @@ export const Gallery: React.FC = () => {
                     aria-hidden="true"
                     className={styles.sparkle}
                 >
-                    ✳
+                    <Asterisk />
                 </div>
 
                 <div className={styles.headerInner}>
@@ -141,7 +141,7 @@ export const Gallery: React.FC = () => {
                         ))}
                     </div>
                 ) : (
-                    <p className={styles.empty}>No pieces in this category yet — check back soon ✳</p>
+                    <p className={styles.empty}>No pieces in this category yet — check back soon *</p>
                 )}
             </section>
 

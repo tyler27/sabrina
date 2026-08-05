@@ -1,4 +1,5 @@
 @import './tokens';
+@import './motion';
 
 // NOTE: compiled with node-sass (libsass), so `@import` rather than `@use`, and
 // CSS `min()`/`max()` must be interpolated to avoid colliding with Sass builtins.
@@ -106,48 +107,6 @@ html.sda-reveal-ready [data-reveal] {
 
 html.sda-reveal-ready [data-reveal].is-revealed {
     animation: sda-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-
-// ---- keyframes ----
-@keyframes sda-rise {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes sda-floaty {
-    0%,
-    100% {
-        transform: translateY(0) rotate(var(--r, 0deg));
-    }
-    50% {
-        transform: translateY(-16px) rotate(var(--r, 0deg));
-    }
-}
-
-@keyframes sda-spin {
-    to {
-        rotate: 360deg;
-    }
-}
-
-@keyframes sda-bob {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(7px);
-    }
-}
-
-@keyframes sda-marquee {
-    to {
-        transform: translateX(-50%);
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {

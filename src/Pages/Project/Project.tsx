@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import { ContactCta } from '../../components/ContactCta/ContactCta'
 import { LoopingVideo } from '../../components/LoopingVideo/LoopingVideo'
-import { Flower } from '../../components/Decor/Decor'
+import { Asterisk, Flower } from '../../components/Decor/Decor'
 import { HashLink } from '../../components/HashLink/HashLink'
+import { Lightbox, LightboxImage } from '../../components/Lightbox/Lightbox'
 import { useScrollEffects } from '../../hooks/useScrollEffects'
 import { usePageChrome } from '../../hooks/usePageChrome'
 import { getProject, HeroLayout, MediaItem, Project as ProjectData } from '../../data/projects'
@@ -12,21 +13,46 @@ import styles from './Project.module.scss'
 
 const rotations = ['-2deg', '1.5deg', '-1deg', '2deg', '-1.5deg']
 
-const Hero: React.FC<{ hero: HeroLayout; title: string }> = ({ hero, title }) => {
+/**
+ * Every still on the page, in the order it appears, so the viewer can step
+ * through the whole project. Clips are left out — they play where they sit.
+ */
+const enlargeable = (project: ProjectData): LightboxImage[] => {
+    const hero =
+        project.hero.kind === 'grid'
+            ? project.hero.images.map((src, index) => ({
+                  src,
+                  caption: `${project.title} — panel ${index + 1}`
+              }))
+            : [{ src: project.hero.src, caption: project.title }]
+
+    return [
+        ...hero,
+        ...project.images.filter((item) => !item.video).map((item) => ({ src: item.src, caption: item.caption }))
+    ]
+}
+
+const Hero: React.FC<{ hero: HeroLayout; title: string; onEnlarge: (src: string) => void }> = ({
+    hero,
+    title,
+    onEnlarge
+}) => {
     if (hero.kind === 'grid') {
         return (
             <div className={styles.heroGrid}>
                 {hero.images.map((src, index) => (
-                    <div
+                    <button
                         key={src}
+                        type="button"
                         className={styles.heroGridCell}
+                        onClick={() => onEnlarge(src)}
                     >
                         <img
                             src={src}
                             alt={`${title} — panel ${index + 1}`}
                             decoding="async"
                         />
-                    </div>
+                    </button>
                 ))}
             </div>
         )
@@ -34,20 +60,27 @@ const Hero: React.FC<{ hero: HeroLayout; title: string }> = ({ hero, title }) =>
 
     if (hero.kind === 'natural') {
         return (
-            <img
-                src={hero.src}
-                alt={title}
-                className={styles.heroNatural}
-                decoding="async"
-            />
+            <button
+                type="button"
+                className={styles.heroNaturalButton}
+                onClick={() => onEnlarge(hero.src)}
+            >
+                <img
+                    src={hero.src}
+                    alt={title}
+                    className={styles.heroNatural}
+                    decoding="async"
+                />
+            </button>
         )
     }
 
     return (
-        <div
+        <button
+            type="button"
             className={styles.heroImage}
-            role="img"
-            aria-label={title}
+            aria-label={`Enlarge ${title}`}
+            onClick={() => onEnlarge(hero.src)}
             style={{
                 backgroundImage: `url('${hero.src}')`,
                 backgroundSize: hero.kind === 'contain' ? 'contain' : 'cover',
@@ -58,40 +91,50 @@ const Hero: React.FC<{ hero: HeroLayout; title: string }> = ({ hero, title }) =>
     )
 }
 
-const GalleryItem: React.FC<{ item: MediaItem; index: number; fixedWidth: boolean }> = ({
-    item,
-    index,
-    fixedWidth
-}) => (
-    <figure
-        className={fixedWidth ? `${styles.plate} ${styles.plateFixed}` : styles.plate}
-        style={{ transform: `rotate(${rotations[index % rotations.length]})` }}
-        data-reveal
-    >
-        <span
-            aria-hidden="true"
-            className={styles.plateTape}
-            style={{ transform: `translateX(-50%) rotate(${index % 2 ? 2 : -3}deg)` }}
-        />
-        <div className={styles.plateFrame}>
+const GalleryItem: React.FC<{
+    item: MediaItem
+    index: number
+    fixedWidth: boolean
+    onEnlarge: (src: string) => void
+}> = ({ item, index, fixedWidth, onEnlarge }) => (
+    <div className={fixedWidth ? `${styles.slot} ${styles.slotFixed}` : styles.slot}>
+        <figure
+            className={styles.plate}
+            style={{ transform: `rotate(${rotations[index % rotations.length]})` }}
+            data-reveal
+        >
+            <span
+                aria-hidden="true"
+                className={styles.plateTape}
+                style={{ transform: `translateX(-50%) rotate(${index % 2 ? 2 : -3}deg)` }}
+            />
             {item.video ? (
-                <LoopingVideo
-                    src={item.src}
-                    caption={item.caption}
-                    className={styles.plateMedia}
-                />
+                <div className={styles.plateFrame}>
+                    <LoopingVideo
+                        src={item.src}
+                        caption={item.caption}
+                        className={styles.plateMedia}
+                    />
+                </div>
             ) : (
-                <img
-                    src={item.src}
-                    alt={item.caption}
-                    className={styles.plateMedia}
-                    loading="lazy"
-                    decoding="async"
-                />
+                <button
+                    type="button"
+                    className={`${styles.plateFrame} ${styles.plateButton}`}
+                    aria-label={`Enlarge ${item.caption}`}
+                    onClick={() => onEnlarge(item.src)}
+                >
+                    <img
+                        src={item.src}
+                        alt={item.caption}
+                        className={styles.plateMedia}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </button>
             )}
-        </div>
-        <figcaption className={styles.plateCaption}>{item.caption}</figcaption>
-    </figure>
+            <figcaption className={styles.plateCaption}>{item.caption}</figcaption>
+        </figure>
+    </div>
 )
 
 const NotFound: React.FC = () => {
@@ -114,6 +157,14 @@ const Detail: React.FC<{ project: ProjectData }> = ({ project }) => {
     usePageChrome({ title: project.title, description: project.blurb })
     useScrollEffects([project.slug])
 
+    const images = useMemo(() => enlargeable(project), [project])
+    const [viewing, setViewing] = useState<number | null>(null)
+
+    const enlarge = (src: string) => {
+        const index = images.findIndex((image) => image.src === src)
+        if (index !== -1) setViewing(index)
+    }
+
     const galleryClass =
         project.gallery.kind === 'grid'
             ? `${styles.gallery} ${styles.galleryGrid}`
@@ -129,7 +180,7 @@ const Detail: React.FC<{ project: ProjectData }> = ({ project }) => {
                     aria-hidden="true"
                     className={styles.sparkle}
                 >
-                    ✳
+                    <Asterisk />
                 </div>
                 <div
                     data-px="0.3"
@@ -180,6 +231,7 @@ const Detail: React.FC<{ project: ProjectData }> = ({ project }) => {
                         <Hero
                             hero={project.hero}
                             title={project.title}
+                            onEnlarge={enlarge}
                         />
                     </div>
                 </div>
@@ -298,6 +350,7 @@ const Detail: React.FC<{ project: ProjectData }> = ({ project }) => {
                                     item={item}
                                     index={index}
                                     fixedWidth={project.gallery.kind === 'centered'}
+                                    onEnlarge={enlarge}
                                 />
                             ))}
                         </div>
@@ -311,12 +364,19 @@ const Detail: React.FC<{ project: ProjectData }> = ({ project }) => {
                     aria-hidden="true"
                     className={styles.ctaSparkle}
                 >
-                    ✳
+                    <Asterisk />
                 </div>
                 <div className={styles.ctaInner}>
                     <ContactCta secondary={{ label: 'View gallery →', to: '/gallery' }} />
                 </div>
             </section>
+
+            <Lightbox
+                images={images}
+                index={viewing}
+                onClose={() => setViewing(null)}
+                onNavigate={setViewing}
+            />
         </div>
     )
 }

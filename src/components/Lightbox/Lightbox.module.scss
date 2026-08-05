@@ -1,0 +1,124 @@
+@import '../../styles/tokens';
+@import '../../styles/motion';
+
+.backdrop {
+    position: fixed;
+    inset: 0;
+    // Above the menu bar (200) and the film grain (160).
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 28px);
+    padding: clamp(46px, 7vh, 76px) clamp(12px, 3vw, 40px);
+    background: rgba(28, 20, 54, 0.93);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    animation: sda-rise 0.22s ease both;
+    cursor: zoom-out;
+}
+
+.figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    cursor: default;
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+    // Leaves room for the caption beneath.
+    max-height: calc(100vh - 190px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 3px;
+    background: $card;
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.5);
+}
+
+.caption {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: $font-hand;
+    font-size: 22px;
+    line-height: 1.2;
+    color: $on-dark;
+    text-align: center;
+}
+
+.counter {
+    @include mono-label(11px);
+    color: $on-dark-faint;
+}
+
+.close,
+.arrow {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid rgba(255, 255, 255, 0.32);
+    border-radius: 50%;
+    // Opaque, so the picture behind never shows through the control.
+    background: $ink;
+    color: $on-dark;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+    &:hover {
+        background: $grape;
+        border-color: $gold;
+        color: $gold;
+    }
+}
+
+.close {
+    position: absolute;
+    top: clamp(12px, 2vh, 24px);
+    right: clamp(12px, 3vw, 28px);
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+}
+
+.arrow {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+}
+
+// On phones there is no room for arrows beside the picture; they sit over the
+// bottom corners instead, clear of the caption.
+@media (max-width: 640px) {
+    .backdrop {
+        gap: 0;
+    }
+
+    .image {
+        max-height: calc(100vh - 220px);
+    }
+
+    .arrow {
+        position: absolute;
+        bottom: clamp(12px, 2vh, 24px);
+    }
+
+    .prev {
+        left: clamp(12px, 4vw, 28px);
+    }
+
+    .next {
+        right: clamp(12px, 4vw, 28px);
+    }
+}

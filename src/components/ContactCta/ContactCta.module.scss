@@ -45,7 +45,10 @@
     }
 }
 
+// Opaque fill in the dark surface's own colour — on the gallery this sits over
+// the corkboard's dot grid, which otherwise read straight through the label.
 .secondary {
+    background: $ink;
     border: 1.5px solid rgba(255, 255, 255, 0.35);
     transition:
         border-color 0.2s ease,

@@ -2,6 +2,12 @@ import React from 'react'
 import styles from './Decor.module.scss'
 
 /**
+ * The daisy head sits this far off-axis. Kept on the artwork rather than on each
+ * placement so every daisy on the site shares one tilt.
+ */
+const daisyTilt = 20
+
+/**
  * The floating paper flower that recurs across the design. Purely decorative, so
  * it is hidden from assistive tech.
  */
@@ -25,7 +31,7 @@ export const Flower: React.FC<{ petal?: string; outline?: string; centre?: strin
             {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
                 <g
                     key={angle}
-                    transform={`rotate(${angle} 50 50)`}
+                    transform={`rotate(${angle + daisyTilt} 50 50)`}
                 >
                     <ellipse
                         cx="50"
@@ -45,6 +51,27 @@ export const Flower: React.FC<{ petal?: string; outline?: string; centre?: strin
             strokeWidth="3.4"
         />
     </svg>
+)
+
+/**
+ * The decorative asterisk scattered across the pages.
+ *
+ * A plain `*` rather than a dingbat: `✳` (U+2733) carries an emoji presentation
+ * on iOS and Android, so phones drew it as a green emoji glyph instead of
+ * picking up the surrounding colour.
+ *
+ * The glyph is drawn up near the cap height rather than centred in its line box,
+ * so the wrapper collapses the leading and nudges the character back down —
+ * without that the spinning floaters orbit a point below themselves instead of
+ * turning on the spot.
+ */
+export const Asterisk: React.FC = () => (
+    <span
+        className={styles.asterisk}
+        aria-hidden="true"
+    >
+        *
+    </span>
 )
 
 /** The manila folder icon used by the Finder window. */

@@ -1,4 +1,5 @@
 @import '../../styles/tokens';
+@import '../../styles/motion';
 
 .page {
     position: relative;
@@ -25,7 +26,10 @@
     width: 96px;
     height: 96px;
     z-index: 1;
-    animation: sda-floaty 9s ease-in-out infinite;
+    // Bob on `transform`, turn on `rotate` — see the note in Hero.module.scss.
+    animation:
+        sda-floaty 9s ease-in-out infinite,
+        sda-spin 54s linear infinite;
 }
 
 .sparkle {
@@ -72,11 +76,14 @@
     font-size: 13px;
 }
 
+// Opaque rather than see-through: the corkboard's dot grid read straight
+// through the chips and made the labels hard to pick out. The fill is the
+// board's own colour, so only the bleed-through changes.
 .chip {
     padding: 9px 18px;
     border-radius: 999px;
     border: 1.5px solid rgba(255, 255, 255, 0.3);
-    background: transparent;
+    background: $ink;
     color: $on-dark-muted;
     white-space: nowrap;
     cursor: pointer;
