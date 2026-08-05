@@ -30,7 +30,7 @@ const setMeta = (name: string, content: string) => {
  */
 export const usePageChrome = ({ title, description, theme = 'paper' }: PageChrome): void => {
     useEffect(() => {
-        document.title = title ? `${title} — ${SITE}` : `${SITE} — Graphic Designer & Illustrator`
+        document.title = title ? `${title} | ${SITE}` : `${SITE} | Graphic Designer & Illustrator`
     }, [title])
 
     useEffect(() => {

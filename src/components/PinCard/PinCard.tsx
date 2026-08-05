@@ -56,7 +56,7 @@ export const PinCard: React.FC<PinCardProps> = ({ project, rotate, tape, eager }
             >
                 <img
                     src={card.image}
-                    alt={`${project.title} — ${project.blurb}`}
+                    alt={`${project.title}: ${project.blurb}`}
                     className={styles.image}
                     style={{ objectPosition: card.position ?? 'center' }}
                     loading={eager ? 'eager' : 'lazy'}

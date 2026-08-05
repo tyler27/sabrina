@@ -14,7 +14,7 @@ const buildNote = (age: number) => [
     'On a cozy rainy day you’ll find',
     'me sketching in my art studio.',
     '',
-    '— With love, Sabrina Delila ❤'
+    'With love, Sabrina Delila ❤'
 ]
 
 const pills = ['6+ yrs freelance', '4.0 GPA · PTK', 'Art Club President']
@@ -120,7 +120,7 @@ export const About: React.FC = () => {
                     >
                         Over the past six years I’ve created illustrations for books, magazines, and marketing
                         campaigns. In 2023 I earned my Associate of Arts in Fine Art along with a Graphic Design
-                        Certification — with Honors. Take a look around and explore my work!
+                        Certification (with Honors). Take a look around and explore my work!
                     </p>
 
                     <div

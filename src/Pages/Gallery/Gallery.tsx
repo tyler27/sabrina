@@ -141,7 +141,7 @@ export const Gallery: React.FC = () => {
                         ))}
                     </div>
                 ) : (
-                    <p className={styles.empty}>No pieces in this category yet — check back soon *</p>
+                    <p className={styles.empty}>No pieces in this category yet. Check back soon *</p>
                 )}
             </section>
 

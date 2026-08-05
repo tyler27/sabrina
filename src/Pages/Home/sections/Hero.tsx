@@ -28,7 +28,7 @@ const Ticket: React.FC = () => (
                 />
                 <div className={styles.ticketMeta}>
                     <span className={styles.star}>★</span>
-                    EST·2023 — HONORS
+                    EST·2023 · HONORS
                     <span className={styles.star}>★</span>
                 </div>
             </div>
