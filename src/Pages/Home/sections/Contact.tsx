@@ -1,5 +1,6 @@
 import React from 'react'
 import { SiteFooter } from '../../../components/SiteFooter/SiteFooter'
+import { Asterisk } from '../../../components/Decor/Decor'
 import { site } from '../../../data/site'
 import styles from './Contact.module.scss'
 
@@ -13,7 +14,7 @@ export const Contact: React.FC = () => (
             aria-hidden="true"
             className={styles.sparkleA}
         >
-            ✳
+            <Asterisk />
         </div>
         <div
             data-px="-0.2"

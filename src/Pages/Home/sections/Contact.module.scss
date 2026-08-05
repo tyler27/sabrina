@@ -1,4 +1,5 @@
 @import '../../../styles/tokens';
+@import '../../../styles/motion';
 
 .contact {
     position: relative;
@@ -23,7 +24,10 @@
     right: 8%;
     font-size: 32px;
     color: $rose;
-    animation: sda-floaty 8s ease-in-out infinite;
+    // Breathes a touch slower than the hero's, so the two are never in sync.
+    animation:
+        sda-floaty 8s ease-in-out infinite,
+        sda-breathe 11s ease-in-out infinite;
 }
 
 .inner {
@@ -87,7 +91,9 @@
     }
 }
 
+// Opaque fill in the section's own colour, so nothing reads through the labels.
 .secondary {
+    background: $ink;
     border: 1.5px solid rgba(255, 255, 255, 0.3);
     transition:
         border-color 0.2s ease,

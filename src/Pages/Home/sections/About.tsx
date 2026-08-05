@@ -1,10 +1,13 @@
 import React from 'react'
+import { Asterisk } from '../../../components/Decor/Decor'
 import { useDraggable } from '../../../hooks/useDraggable'
+import { currentAge } from '../../../data/site'
 import { asset } from '../../../data/projects'
 import styles from './About.module.scss'
 
-const noteLines = [
-    'Hi! I’m a 30 year old artist with',
+/** Built per render so the age is right whenever the page is opened. */
+const buildNote = (age: number) => [
+    `Hi! I’m a ${age} year old artist with`,
     'a love for visual storytelling',
     'and a flair for horror. ☀',
     '',
@@ -19,6 +22,7 @@ const pills = ['6+ yrs freelance', '4.0 GPA · PTK', 'Art Club President']
 export const About: React.FC = () => {
     const sticky = useDraggable<HTMLDivElement>()
     const polaroid = useDraggable<HTMLDivElement>()
+    const noteLines = buildNote(currentAge())
 
     return (
         <section
@@ -30,7 +34,7 @@ export const About: React.FC = () => {
                 aria-hidden="true"
                 className={styles.sparkle}
             >
-                ✳
+                <Asterisk />
             </div>
 
             <div className={styles.grid}>

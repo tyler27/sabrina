@@ -4,6 +4,18 @@
     overflow: visible;
 }
 
+.asterisk {
+    display: block;
+    // A `*` inks about a third of its em box where the dingbat it replaced
+    // filled nearly all of one, so it is drawn oversized to land at the size
+    // each placement was laid out for.
+    font-size: 2em;
+    line-height: 1;
+    // The ink also sits roughly 0.17em above the middle of the line box; the
+    // shift re-centres it so rotation animations turn about the glyph itself.
+    transform: translateY(0.17em);
+}
+
 .folder {
     display: block;
     margin: 0 auto 8px;

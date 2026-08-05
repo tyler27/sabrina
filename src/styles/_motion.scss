@@ -1,0 +1,69 @@
+// Keyframes for the site's decorative motion.
+//
+// Import this partial into *every* file that declares an `animation`, including
+// the CSS modules. css-loader scopes both `@keyframes` names and `animation`
+// values inside `*.module.scss`, and it can only pair a reference with a
+// definition sitting in the same file. A module pointing at a name declared
+// only in global.scss therefore compiles to a scoped reference with nothing
+// behind it, and the animation silently never runs — which is exactly what had
+// happened to the floating decor, the marquee and the scroll hint.
+//
+// Each importer emits its own copy of the block. That is the cost of the fix;
+// it is a few hundred bytes per stylesheet and the alternative (`:global(...)`
+// around every animation name) is far easier to forget.
+
+@keyframes sda-rise {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes sda-floaty {
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--r, 0deg));
+    }
+    50% {
+        transform: translateY(-16px) rotate(var(--r, 0deg));
+    }
+}
+
+// Turns the `rotate` property rather than `transform`, so an element can spin
+// and be translated by a second animation at the same time.
+@keyframes sda-spin {
+    to {
+        rotate: 360deg;
+    }
+}
+
+// A slow swell and settle, like a held breath. Drives the `scale` property for
+// the same reason `sda-spin` drives `rotate` — it has to sit alongside the
+// float, which owns `transform`.
+@keyframes sda-breathe {
+    0%,
+    100% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.32;
+    }
+}
+
+@keyframes sda-bob {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+@keyframes sda-marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}

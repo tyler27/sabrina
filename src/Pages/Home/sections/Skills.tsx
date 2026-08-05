@@ -96,7 +96,7 @@ export const Skills: React.FC = () => (
                                         aria-hidden="true"
                                         className={styles.bullet}
                                     >
-                                        ✳
+                                        *
                                     </span>
                                     {item}
                                 </li>

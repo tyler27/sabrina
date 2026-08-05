@@ -1,6 +1,6 @@
 import React from 'react'
 import { HashLink } from '../../../components/HashLink/HashLink'
-import { Flower } from '../../../components/Decor/Decor'
+import { Asterisk, Flower } from '../../../components/Decor/Decor'
 import { useDraggable } from '../../../hooks/useDraggable'
 import { asset } from '../../../data/projects'
 import styles from './Hero.module.scss'
@@ -51,7 +51,7 @@ export const Hero: React.FC = () => {
                 aria-hidden="true"
                 className={`${styles.floater} ${styles.sparkleA}`}
             >
-                ✳
+                <Asterisk />
             </div>
             <div
                 data-px="0.34"
@@ -166,7 +166,7 @@ export const Hero: React.FC = () => {
                             <br />
                             portraits on my
                             <br />
-                            Etsy ✳
+                            Etsy *
                         </div>
 
                         <div
