@@ -103,7 +103,7 @@ export const projects: Project[] = [
         tools: 'Procreate, Photoshop',
         blurb: 'Custom hand-drawn artwork celebrating love, life & special moments.',
         description: [
-            'I specialize in creating hand-drawn digital portraits that celebrate life’s most meaningful moments — from loved ones and family bonds, to weddings, anniversaries, and special occasions.',
+            'I specialize in creating hand-drawn digital portraits that celebrate life’s most meaningful moments: from loved ones and family bonds, to weddings, anniversaries, and special occasions.',
             'Every portrait is carefully drawn by hand on a digital canvas, capturing personality, warmth, and emotion. Once complete, you can choose from museum-quality poster prints or UV-printed hardboard secured to beautifully ornate frames, turning your portrait into a lasting keepsake.',
             'You can commission your own custom portrait through my Etsy shop, <a href="https://www.etsy.com/shop/SabrinaDelilaArts" target="_blank" rel="noopener noreferrer">SabrinaDelilaArts</a>.'
         ],
@@ -139,8 +139,8 @@ export const projects: Project[] = [
         blurb: 'Cover art, chapter illustrations, and marketing material for Heaven’s Bell.',
         description: [
             'I illustrated the cover and chapter art for Sherrie Barch’s children’s book Heaven’s Bell, plus her marketing material and book signing signage.',
-            'Heaven’s Bell was written to create a safe space for families to have a conversation about death and dying in a natural and productive way — one that creates feelings of joy, inspiration, and gratitude for life. The book is available at Barnes & Noble and Amazon.',
-            '“Having worked with Sabrina on my book Heaven’s Bell in 2020, I was impressed with her professionalism, artistic abilities and genuine teamwork in the overall success of our publication and production.” — Sherrie Barch'
+            'Heaven’s Bell was written to create a safe space for families to have a conversation about death and dying in a natural and productive way, one that creates feelings of joy, inspiration, and gratitude for life. The book is available at Barnes & Noble and Amazon.',
+            '“Having worked with Sabrina on my book Heaven’s Bell in 2020, I was impressed with her professionalism, artistic abilities and genuine teamwork in the overall success of our publication and production.” (Sherrie Barch)'
         ],
         hero: {
             kind: 'contain',
@@ -152,7 +152,7 @@ export const projects: Project[] = [
         images: [
             { src: asset('original-sketch-ch-1-2.webp'), caption: 'Ch. 1 original sketch' },
             { src: asset('heavens-bell-ch1-final.webp'), caption: 'Ch. 1 final artwork' },
-            { src: asset('chapter-image-in-book.webp'), caption: 'Under the Stars — chapter spread' },
+            { src: asset('chapter-image-in-book.webp'), caption: 'Under the Stars: chapter spread' },
             { src: asset('heavens-bell-grandmother.webp'), caption: 'Grandmother embrace' },
             { src: asset('heavens-bell-cathedral.webp'), caption: 'Cathedral interior' },
             { src: asset('original-sketch-ch-10-pt-1-2.webp'), caption: 'Ch. 10 original sketch' }
@@ -178,14 +178,14 @@ export const projects: Project[] = [
         blurb: 'A calm, welcoming brand identity and storefront for a neighbourhood café.',
         description: [
             'Coffee Zen is a full brand identity and e-commerce concept for a neighborhood café, built around one feeling: the quiet calm of a slow morning with a good cup of coffee. I developed the logo, color palette, typography, and supporting graphics to carry that unhurried, welcoming tone across every touchpoint.',
-            'The mark pairs a hand-drawn meditating figure with soft, earthy letterforms and a warm palette — terracotta, sage green, cream, and black — so it reads as approachable and grounded rather than corporate. It holds up small on an app icon and large on a storefront sign alike.',
-            'From there I designed the digital experience: a welcoming homepage, a product page with playful specialty-blend packaging, and a clean cart and checkout flow — keeping spacing, color, and voice consistent so the brand feels like one cohesive place whether you meet it on the street or on your phone.'
+            'The mark pairs a hand-drawn meditating figure with soft, earthy letterforms and a warm palette (terracotta, sage green, cream, and black), so it reads as approachable and grounded rather than corporate. It holds up small on an app icon and large on a storefront sign alike.',
+            'From there I designed the digital experience: a welcoming homepage, a product page with playful specialty-blend packaging, and a clean cart and checkout flow, keeping spacing, color, and voice consistent so the brand feels like one cohesive place whether you meet it on the street or on your phone.'
         ],
         hero: { kind: 'cover', src: asset('coffee-zen-hero.webp') },
         gallery: { kind: 'grid', columns: 2 },
         pdf: {
             href: asset('coffee-zen-brand-guide.pdf'),
-            title: 'Brand guidelines — PDF',
+            title: 'Brand guidelines (PDF)',
             note: 'Logo usage, palette, and typography in one document.'
         },
         images: [
@@ -254,11 +254,11 @@ export const projects: Project[] = [
         blurb: 'A mobile ordering concept for a playful dessert shop.',
         description: [
             'Sulley’s Sweets is a mobile app concept for browsing and ordering desserts, designed to feel as sweet and inviting as the products themselves.',
-            'I designed the full flow — from menu browsing to checkout — focusing on big, tappable cards, clear pricing, and a cheerful, candy-bright interface.'
+            'I designed the full flow (from menu browsing to checkout), focusing on big, tappable cards, clear pricing, and a cheerful, candy-bright interface.'
         ],
         pdf: {
             href: asset('sulleys-sweets-brand-guide.pdf'),
-            title: 'Brand guidelines — PDF',
+            title: 'Brand guidelines (PDF)',
             note: 'Logo usage, palette, and typography in one document.'
         },
         hero: {
@@ -294,10 +294,10 @@ export const projects: Project[] = [
         tools: 'Procreate, Photoshop',
         blurb: 'A moody, atmospheric book-cover concept for a horror novel.',
         description: [
-            'Josh Malerman’s Incidents Around the House reignited my love for horror. His description of “Other Mommy” was so frightening I had to see what she looked like, so I drew her — so unnervingly tall she has to bend down inside Bela’s bedroom, her face constantly morphing like it’s made of liquid.',
+            'Josh Malerman’s Incidents Around the House reignited my love for horror. His description of “Other Mommy” was so frightening I had to see what she looked like, so I drew her: so unnervingly tall she has to bend down inside Bela’s bedroom, her face constantly morphing like it’s made of liquid.',
             'When I posted my fan art on Instagram I was shocked when the author himself commented: “This is incredible. Gonna share it tomorrow. Thank you for this.”',
             'Later, when I discovered my favorite horror novel had been adapted into a theatrical play, I had to go see it. I flew to Connecticut to watch Josh Malerman and his acting group Hello Wow Town perform their musical version of Incidents Around the House at the Westport Library. It was just as scary as the book, with a giant horrifying Other Mommy puppet created by his wife Allison Laakko.',
-            'After the play, I gifted him a print of my Other Mommy artwork. He said “Yes — you’re the one with the amazing artwork!” and signed my book “Sabrina, brilliant art.” It was one of the most validating experiences of my art career. That spark of inspiration led to an amazing experience I will never forget.'
+            'After the play, I gifted him a print of my Other Mommy artwork. He said “Yes, you’re the one with the amazing artwork!” and signed my book “Sabrina, brilliant art.” It was one of the most validating experiences of my art career. That spark of inspiration led to an amazing experience I will never forget.'
         ],
         hero: { kind: 'cover', src: asset('incidents-jacket.webp'), position: 'center 42%' },
         gallery: { kind: 'columns' },
@@ -307,7 +307,7 @@ export const projects: Project[] = [
             { src: asset('incidents-2.webp'), caption: 'Cover art concept' },
             { src: asset('incidents-author.webp'), caption: 'With author Josh Malerman' },
             { src: asset('incidents-stage.webp'), caption: 'On stage at the book event' },
-            { src: asset('authors-note.webp'), caption: 'Signed by Josh Malerman — “Brilliant art!”' }
+            { src: asset('authors-note.webp'), caption: 'Signed by Josh Malerman: “Brilliant art!”' }
         ],
         card: {
             image: asset('incidents-2.webp'),
@@ -319,7 +319,7 @@ export const projects: Project[] = [
     },
     {
         slug: 'trade',
-        title: 'STKS — Give the Gift of Nostalgia',
+        title: 'STKS: Give the Gift of Nostalgia',
         tag: 'Trade show display',
         year: '2024',
         category: 'Branding',
@@ -328,8 +328,8 @@ export const projects: Project[] = [
         tools: 'Photoshop, Illustrator',
         blurb: 'A retro ’90s-inspired promotional poster and trade-show display.',
         description: [
-            'STKS is my mom’s ’90s passion project, revived — she created custom stick figure name signs and coloring pages, and I brought the whole thing back to life.',
-            'For the brand I built a loud, nostalgic ’90s aesthetic — neon gradients, VHS textures, and pixel type — to sell the feeling of going back to a simpler time.',
+            'STKS is my mom’s ’90s passion project, revived: she created custom stick figure name signs and coloring pages, and I brought the whole thing back to life.',
+            'For the brand I built a loud, nostalgic ’90s aesthetic (neon gradients, VHS textures, and pixel type) to sell the feeling of going back to a simpler time.',
             'In every STKS design there is a blue-eyed “Sabrina” stick person hidden to search for.',
             'The layout was designed to work as both a printed trade-show display and a scroll-stopping social graphic, with clear contact info anchored at the bottom.'
         ],
@@ -363,7 +363,7 @@ export const projects: Project[] = [
         blurb: 'Horror and Halloween artwork made in Adobe Illustrator.',
         description: [
             'A collection of my horror and spooky artwork, made in Adobe Illustrator.',
-            'I have always had a love for horror and Halloween — inspired by Stephen King books, horror movies, and all things that go bump in the night.',
+            'I have always had a love for horror and Halloween, inspired by Stephen King books, horror movies, and all things that go bump in the night.',
             'Every year I go to a Halloween festival called Hulaween, and last year I decided to create a poster and tote bags to sell. Seeing my artwork carried around the festival by other Halloween lovers was easily the best part.'
         ],
         hero: {
@@ -376,11 +376,11 @@ export const projects: Project[] = [
         images: [
             { src: asset('hulaween-tote.webp'), caption: 'Hulaween tote bag' },
             { src: asset('img-7539-large.webp'), caption: 'Tote in hand' },
-            { src: asset('strega-spell-in-sicily.webp'), caption: 'Strega — A Spell in Sicily' },
+            { src: asset('strega-spell-in-sicily.webp'), caption: 'Strega: A Spell in Sicily' },
             { src: asset('img-3152-large.webp'), caption: 'Sometimes Dead is Better sketch' },
-            { src: asset('img-4084-2.webp'), caption: 'Sometimes Dead is Better — color' },
+            { src: asset('img-4084-2.webp'), caption: 'Sometimes Dead is Better (color)' },
             { src: asset('spooky-final-composite.webp'), caption: 'Final composite' },
-            { src: asset('img-4082-2.webp'), caption: 'Strega — poster (green)' },
+            { src: asset('img-4082-2.webp'), caption: 'Strega poster (green)' },
             { src: asset('img-4085-2.webp'), caption: 'Pet Sematary made entirely of text' },
             { src: asset('pet-sematary-text.webp'), caption: 'Pet Sematary made entirely of text' }
         ],
@@ -404,12 +404,12 @@ export const projects: Project[] = [
         blurb: 'Ink sketches for a children’s book set in a classroom.',
         description: [
             'A collection of ink sketches for a children’s book set in a classroom.',
-            'These are the early observational drawings — kids at recess, desks, and school-day moments — that establish the characters and settings before anything gets colored.'
+            'These are the early observational drawings (kids at recess, desks, and school-day moments) that establish the characters and settings before anything gets colored.'
         ],
         hero: { kind: 'cover', src: asset('school-sketch.webp') },
         gallery: { kind: 'columns' },
         images: [
-            { src: asset('recess-tug-of-war.webp'), caption: 'Recess — tug of war & jump rope' },
+            { src: asset('recess-tug-of-war.webp'), caption: 'Recess: tug of war & jump rope' },
             { src: asset('untitled-artwork-34.webp'), caption: 'At the table' },
             { src: asset('untitled-artwork-35.webp'), caption: 'Story circle' },
             { src: asset('untitled-artwork-36.webp'), caption: 'Backpacks in profile' },
@@ -435,9 +435,9 @@ export const projects: Project[] = [
         tools: 'Procreate, After Effects',
         blurb: 'Animations and merchandise created for DJ Dreamtech.',
         description: [
-            'DJ Dreamtech is an amazing artist (Also, my husband) — and his sets are otherworldly. I animated an album cover and a sequence for a music video, both to express his psychedelic vibes.',
+            'DJ Dreamtech is an amazing artist (Also, my husband), and his sets are otherworldly. I animated an album cover and a sequence for a music video, both to express his psychedelic vibes.',
             'Every frame leans into the vibe he brings to the EDM community: warping checkerboards, saturated purples, and a cosmic logo pulsing overhead.',
-            'The work spilled off screen too — I designed merch for his shows, including a pashmina that friends and fans can bring onto the dance floor.'
+            'The work spilled off screen too: I designed merch for his shows, including a pashmina that friends and fans can bring onto the dance floor.'
         ],
         hero: { kind: 'cover', src: asset('dj-dreamtech-still-frame-1.webp'), position: 'center bottom' },
         gallery: { kind: 'columns' },
@@ -467,7 +467,7 @@ export const projects: Project[] = [
         blurb: 'An animated tribute to figure skater Alysa Liu’s 2026 Olympic gold.',
         description: [
             'I was so inspired by figure skater Alysa Liu winning gold for America in the 2026 Olympics.',
-            'I wanted to capture her strength, beauty, and grace as she glided across the Olympic Rings on the ice — winning gold on her own terms, transcending the games for all future figure skaters.',
+            'I wanted to capture her strength, beauty, and grace as she glided across the Olympic Rings on the ice, winning gold on her own terms, transcending the games for all future figure skaters.',
             'The videos on this page show her performance and the different stages of my animation process.'
         ],
         hero: { kind: 'cover', src: asset('ice-skater-still-frame.webp') },
@@ -529,7 +529,7 @@ export const projects: Project[] = [
         tools: 'Procreate',
         blurb: 'A painterly digital piece featured in ArtAscent Magazine, 2020.',
         description: [
-            'I Know Too Much is a digital painting exploring the weight of awareness — a single, expressive eye rendered in loose, painterly strokes. It was selected as a Distinguished Artist feature in ArtAscent Magazine.',
+            'I Know Too Much is a digital painting exploring the weight of awareness: a single, expressive eye rendered in loose, painterly strokes. It was selected as a Distinguished Artist feature in ArtAscent Magazine.',
             'The piece pairs a warm, saturated palette with rough brushwork to keep the image raw and emotional rather than polished.'
         ],
         hero: { kind: 'natural', src: asset('i-know-too-much.webp') },
@@ -554,7 +554,7 @@ export const projects: Project[] = [
         tools: 'Adobe Illustrator, Procreate',
         blurb: 'A selection of vector and digital illustration work.',
         description: [
-            'This piece is part of my ongoing digital illustration practice — exploring color, shape, and character through vector and painterly tools.',
+            'This piece is part of my ongoing digital illustration practice, exploring color, shape, and character through vector and painterly tools.',
             'I use these studies to push my style in new directions, experimenting with palette and composition outside of client constraints.'
         ],
         hero: { kind: 'cover', src: asset('img-1287.webp') },
