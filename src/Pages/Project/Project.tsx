@@ -22,7 +22,7 @@ const enlargeable = (project: ProjectData): LightboxImage[] => {
         project.hero.kind === 'grid'
             ? project.hero.images.map((src, index) => ({
                   src,
-                  caption: `${project.title} — panel ${index + 1}`
+                  caption: `${project.title}, panel ${index + 1}`
               }))
             : [{ src: project.hero.src, caption: project.title }]
 
@@ -49,7 +49,7 @@ const Hero: React.FC<{ hero: HeroLayout; title: string; onEnlarge: (src: string)
                     >
                         <img
                             src={src}
-                            alt={`${title} — panel ${index + 1}`}
+                            alt={`${title}, panel ${index + 1}`}
                             decoding="async"
                         />
                     </button>

@@ -42,7 +42,7 @@ export const Contact: React.FC = () => (
                 data-reveal
                 className={styles.lede}
             >
-                Have a project in mind, or just want to say hi? Drop a note — I’d love to hear what you’re dreaming up.
+                Have a project in mind, or just want to say hi? Drop a note. I’d love to hear what you’re dreaming up.
             </p>
 
             <div

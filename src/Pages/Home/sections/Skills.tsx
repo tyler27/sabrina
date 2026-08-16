@@ -32,7 +32,7 @@ const notes: Note[] = [
         heading: 'Roles',
         items: [
             'President, HCC Art Club (2023)',
-            'PTK Honors Society — 4.0 GPA',
+            'PTK Honors Society, 4.0 GPA',
             'PTK All Florida Academic Team (2023)'
         ],
         paper: '#D9C2D0',
@@ -44,10 +44,10 @@ const notes: Note[] = [
     {
         heading: 'Awards',
         items: [
-            '2025 TRIAD Magazine — Featured Comic',
+            '2025 TRIAD Magazine: Featured Comic',
             '2024 FASTA Exhibition',
             '2023 & 2024 HCC Juried Art Exhibition',
-            'Art Ascent Mag — Artist of Abstract, 2020'
+            'Art Ascent Mag: Artist of Abstract, 2020'
         ],
         paper: '#B7AECB',
         pin: '#A59CCF',
