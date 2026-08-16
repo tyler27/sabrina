@@ -13,7 +13,7 @@ export const site = {
     email: 'sabrinadelilaarts@gmail.com',
     instagram: 'https://www.instagram.com/sabrinadelilaarts/',
     etsy: 'https://www.etsy.com/shop/SabrinaDelilaArts',
-    resume: '/public/assets/sabrina_resume_2025.pdf'
+    resume: '/public/assets/sabrina_resume_2026.pdf'
 } as const
 
 /**
